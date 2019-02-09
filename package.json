@@ -1,0 +1,23 @@
+{
+  "name": "portofilo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nuxt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narajaon/Portofilo.git"
+  },
+  "author": "narajaon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narajaon/Portofilo/issues"
+  },
+  "homepage": "https://github.com/narajaon/Portofilo#readme",
+  "dependencies": {
+    "nuxt": "^2.4.3"
+  }
+}
