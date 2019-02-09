@@ -17,6 +17,7 @@
 <script>
 import ImageCard from '~/components/ImageCard.vue';
 import SparkTransition from '~/components/SparkTransition.vue';
+
 export default {
     components: {
         ImageCard,

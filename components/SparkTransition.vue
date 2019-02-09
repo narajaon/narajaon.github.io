@@ -1,20 +1,19 @@
 <template>
-	<transition-group
-		class="card-grid"
-		name="spark"
-		tag="div"
-	>
-		<div v-if="toDisplay" class="top-left" key="top-left">
-			<slot name="top-left"/>
-		</div>
-		<div v-if="toDisplay" class="top-right" key="top-right">
-			<slot name="top-right"/>
-		</div>
-		<div v-if="toDisplay" class="bottom-left" key="bottom-left">
-			<slot name="bottom-left"/>
-		</div>
-		<div v-if="toDisplay" class="bottom-right" key="bottom-right"><slot name="bottom-right"/></div>
-	</transition-group>
+	<div>
+		<transition-group
+			class="card-grid"
+			name="spark"
+			tag="div"
+		>
+			<div
+				v-for="position in displayedCards"
+				:key="position"
+				:class="position"
+			>
+				<slot :name="position"/>
+			</div>
+		</transition-group>
+	</div>
 </template>
 
 <script>
@@ -25,13 +24,29 @@ export default {
 			required: true,
 		},
 	},
+	data() {
+		return {
+			positions: [
+				'top-left',
+				'top-right',
+				'bottom-left',
+				'bottom-right',
+			]
+		};
+	},
+	computed: {
+		displayedCards() {
+			if (!this.toDisplay) return;
+			return this.positions;
+		}
+	}
 }
 </script>
 
 <style scoped>
 .card-grid {
 	display: grid;
-	grid-template-columns: 200px 200px;
+	grid-template-columns: auto auto;
 	grid-template-rows: auto;
 }
 

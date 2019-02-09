@@ -12,19 +12,14 @@
 
 <script>
 export default {
-    props: {
-        imageId: {
-            default: 151,
-            type: Number,
-        }
-    }
 }
 </script>
 
 <style scoped>
 .image-container {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
 }
 
 .image {
