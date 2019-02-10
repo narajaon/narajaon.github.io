@@ -1,8 +1,8 @@
 <template>
     <div class="navigation-bar">
-        <div>Home</div>
-        <div>About Me</div>
-        <div>Contact</div>
+        <nuxt-link class="nav-button" to="/">Home</nuxt-link>
+        <nuxt-link class="nav-button" to="/about">About</nuxt-link>
+        <nuxt-link class="nav-button" to="/contact">Contact</nuxt-link>
     </div>
 </template>
 
@@ -10,10 +10,22 @@
 .navigation-bar {
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #f3efef;
+    box-shadow: 0 5px 24px -15px grey;
+    height: 40px;
 }
 
-.navigation-bar>div {
-    margin: 10px;
+.nav-button {
+    padding: 10px;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    cursor: pointer;
+    border-bottom: 2px solid lightgrey;
 }
 </style>

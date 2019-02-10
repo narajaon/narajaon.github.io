@@ -1,44 +1,33 @@
 <template>
-	<div>
+	<div class="grid-wrapper">
 		<transition-group
 			class="card-grid"
 			name="spark"
 			tag="div"
 		>
 			<div
-				v-for="position in displayedCards"
-				:key="position"
-				:class="position"
+				v-for="(reload, index) in toDisplay"
+				:key="`transition-${index}`"
+				class="spark-content"
 			>
-				<slot :name="position"/>
+				<image-card :reloadTime="reload"/>
 			</div>
 		</transition-group>
 	</div>
 </template>
 
 <script>
+import ImageCard from '~/components/ImageCard.vue';
+
 export default {
 	props: {
 		toDisplay: {
-			type: Boolean,
+			type: Array,
 			required: true,
 		},
 	},
-	data() {
-		return {
-			positions: [
-				'top-left',
-				'top-right',
-				'bottom-left',
-				'bottom-right',
-			]
-		};
-	},
-	computed: {
-		displayedCards() {
-			if (!this.toDisplay) return;
-			return this.positions;
-		}
+	components: {
+		ImageCard
 	}
 }
 </script>
@@ -46,31 +35,20 @@ export default {
 <style scoped>
 .card-grid {
 	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto;
+	grid-template-columns: repeat(3, 200px);
+	grid-gap: 10px;
+}
+
+.spark-content {
+	display: flex;
+	justify-content: center;
 }
 
 .spark-enter-active, .spark-leave-active {
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 
 .spark-enter, .spark-leave-to {
   opacity: 0;
-}
-
-.spark-enter.top-left, .spark-leave-to.top-left {
-  transform: translateX(-50px);
-}
-
-.spark-enter.top-right, .spark-leave-to.top-right {
-  transform: translateY(-50px);
-}
-
-.spark-enter.bottom-right, .spark-leave-to.bottom-right {
-  transform: translateX(50px);
-}
-
-.spark-enter.bottom-left, .spark-leave-to.bottom-left {
-  transform: translateY(50px);
 }
 </style>

@@ -3,29 +3,27 @@
         class="page-container"
         @click="triggerAnimation()"
     >
+        <home-banner/>
         <spark-transition
-            :toDisplay="displayGrid"
-        >
-            <image-card slot="top-left"></image-card>
-            <image-card slot="top-right"></image-card>
-            <image-card slot="bottom-left"></image-card>
-            <image-card slot="bottom-right"></image-card>
-        </spark-transition>
+            :toDisplay="reloadTimes"
+        />
     </div>
 </template>
 
 <script>
 import ImageCard from '~/components/ImageCard.vue';
 import SparkTransition from '~/components/SparkTransition.vue';
+import HomeBanner from '~/components/HomeBanner.vue';
 
 export default {
     components: {
         ImageCard,
         SparkTransition,
+        HomeBanner,
     },
     data() {
         return {
-            displayGrid: true,
+            reloadTimes: [ 4500, 5000, 5500, 6000, 7000, 6500, 3500 ],
         }
     },
     methods: {
@@ -35,14 +33,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.page-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-</style>
-
