@@ -7,40 +7,53 @@
             <nuxt/>
             <social-bar/>
         </div>
+        <transition
+            name="fade"
+        >
+            <dialog-container v-if="contactMeDialog.isVisible">
+                <contact-me-card slot="content"/>
+            </dialog-container>
+        </transition>
     </div>
 </template>
 
 <script>
 import NavigationBar from '~/components/NavigationBar';
 import SocialBar from '~/components/SocialBar';
+import ContactMeCard from '~/components/ContactMeCard';
+import DialogContainer from '~/components/DialogContainer';
 
 export default {
     components: {
         NavigationBar,
         SocialBar,
-    }    
+        DialogContainer,
+        ContactMeCard,
+    },
+    computed: {
+        contactMeDialog() {            
+            return this.$store.getters['dialogs/entity']('contactMe');
+        },
+    },
 }
 </script>
 
-<style>
-@font-face {
-    font-family: 'Chapaza';
-    src: url('~assets/fonts/Chapaza.ttf');
-}
-
-* {
-    margin: 0;
-    font-family: 'Chapaza', Arial, Helvetica, sans-serif;
-    color: rgb(75, 73, 73);
-}
-
-html {
-    min-height: 100vh;
-    background-color: #f7f7f7;
-}
-
+<style scoped>
 .default-layout {
     display: flex;
     justify-content: center;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.social-bar {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 </style>

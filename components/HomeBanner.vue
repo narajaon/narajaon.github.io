@@ -11,7 +11,7 @@
 
 <style scoped>
 .home-banner {
-    padding: 30px 0;
+    padding-bottom: 30px;
 }
 
 .banner-content {
@@ -20,7 +20,7 @@
 }
 
 .banner-owner {
-    color:rgb(182, 68, 248);
+    color:rgb(142, 16, 214);
 }
 
 p {

@@ -23,7 +23,7 @@ export default {
     },
     data() {
         return {
-            reloadTimes: [ 4500, 5000, 5500, 6000, 7000, 6500, 3500 ],
+            reloadTimes: [ 4500, 5000, 5500, 6000, 7000, 6500, 3500, 4500, 5000 ],
         }
     },
     methods: {

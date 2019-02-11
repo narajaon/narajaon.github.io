@@ -8,5 +8,13 @@ module.exports = {
             crossorigin: 'anonymous',
         }
       ]
-    }
+    },
+    transition: {
+      name: 'page',
+      mode: 'out-in',
+    },
+    css: [
+      '~/css/main.css'
+    ],
+    mode: 'spa',
   }
