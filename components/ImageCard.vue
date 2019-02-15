@@ -13,26 +13,43 @@
             >
             </div>
         </transition>
-        <transition
-            name="replace"
-            mode="out-in"
+
+        <div
+            class="image"
         >
-            <img
-                :key="randomValue"
-                class="image"
-                :src="`https://loremflickr.com/350/350?lock=${randomValue}`"
-                alt="card image"
-            />
-        </transition>
+            <transition
+                name="replace"
+                mode="out-in"
+            >
+                <i
+                    v-if="tileId === 'player'"
+                    class="fas fa-times"
+                />
+                <i
+                    v-if="tileId === 'IA'"
+                    class="far fa-circle"
+                />
+                <!-- <img
+                    :key="randomValue"
+                    class="image"
+                    :src="`https://loremflickr.com/350/350?lock=${randomValue}`"
+                    alt="card image"
+                /> -->
+            </transition>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        reloadTime: {
-            type: Number,
-            default: 5000,
+        // reloadTime: {
+        //     type: Number,
+        //     default: 5000,
+        // }
+        tileId: {
+            required: true,
+            type: String,
         }
     },
     data() {
@@ -48,14 +65,14 @@ export default {
         },
     },
     created() {
-        this.intervalId = setInterval(() => {
-            const max = 3000;
-            const min = 1;
-            this.randomValue = Math.floor(Math.random() * (max - min)) + min;
-        }, this.reloadTime);
+        // this.intervalId = setInterval(() => {
+        //     const max = 3000;
+        //     const min = 1;
+        //     this.randomValue = Math.floor(Math.random() * (max - min)) + min;
+        // }, this.reloadTime);
     },
     beforeDestroy() {
-        clearInterval(this.intervalId);
+        // clearInterval(this.intervalId);
     }
 }
 </script>
@@ -65,7 +82,7 @@ export default {
     position: absolute;
     width: 200px;
     height: 200px;
-    background-color: grey;
+    background-color: lightgrey;
     opacity: 0.5;
 }
 
@@ -76,6 +93,12 @@ export default {
 
 .image {
     height: 100%;
+    width: 100%;
+    font-size: 150px;
+    text-align: center;
+    color: rgb(184, 179, 179);
+    border: 1px solid lightgrey;
+    line-height: 200px;
 }
 
 .replace-enter-active, .replace-leave-active {

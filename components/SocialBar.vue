@@ -1,8 +1,8 @@
 <template>
     <div class="social-bar">
-        <a href="#" class="fab fa-twitter"/>
-        <a href="#" class="fab fa-linkedin"/>
         <a href="#" class="fab fa-github"/>
+        <a href="#" class="fab fa-linkedin"/>
+        <a href="#" class="fab fa-twitter"/>
     </div>
 </template>
 

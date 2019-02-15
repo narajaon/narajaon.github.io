@@ -6,11 +6,13 @@
 			tag="div"
 		>
 			<div
-				v-for="(reload, index) in toDisplay"
+				v-for="(id, index) in toDisplay"
+				@click="switchTileState(index)"
 				:key="`transition-${index}`"
 				class="spark-content"
 			>
-				<image-card :reloadTime="reload"/>
+				<image-card
+					:tileId="id"/>
 			</div>
 		</transition-group>
 	</div>
@@ -20,14 +22,25 @@
 import ImageCard from '~/components/ImageCard.vue';
 
 export default {
+	components: {
+		ImageCard
+	},
 	props: {
 		toDisplay: {
 			type: Array,
 			required: true,
 		},
 	},
-	components: {
-		ImageCard
+	data() {
+		return {
+			gridState: 'IA', // Can either be 'player' or 'IA'
+		};
+	},
+	methods:{
+		switchTileState(index) {
+			this.toDisplay[index] = this.gridState;
+			this.$forceUpdate();
+		},
 	}
 }
 </script>

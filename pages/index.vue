@@ -5,7 +5,7 @@
     >
         <home-banner/>
         <spark-transition
-            :toDisplay="reloadTimes"
+            :toDisplay="homeGrid"
         />
     </div>
 </template>
@@ -23,7 +23,11 @@ export default {
     },
     data() {
         return {
-            reloadTimes: [ 4500, 5000, 5500, 6000, 7000, 6500, 3500, 4500, 5000 ],
+            homeGrid: [
+                'empty', 'empty', 'empty',
+                'empty', 'empty', 'empty',
+                'empty', 'empty', 'empty',
+            ]
         }
     },
     methods: {

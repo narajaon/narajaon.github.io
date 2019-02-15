@@ -24,7 +24,6 @@ export default {
 <style scoped>
 .contact-me {
     background-color: white;
-    border: 2px solid rgb(142, 16, 214);
     padding: 30px;
 }
 
@@ -46,6 +45,9 @@ h2 {
 
 input {
     padding: 3px;
-    color: rgb(129, 129, 129);
+}
+
+input:focus {
+    outline: none;
 }
 </style>

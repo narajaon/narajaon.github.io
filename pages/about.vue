@@ -60,7 +60,7 @@ export default {
 }
 
 .profile-infos {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .page-category {
