@@ -10,8 +10,7 @@
             <div
                 v-if="isHovered"
                 class="hover-overlay"
-            >
-            </div>
+            />
         </transition>
 
         <div
@@ -22,12 +21,8 @@
                 mode="out-in"
             >
                 <i
-                    v-if="tileId === 'player'"
-                    class="fas fa-times"
-                />
-                <i
-                    v-if="tileId === 'IA'"
-                    class="far fa-circle"
+                    v-if="tileContent !== 'empty'"
+                    :class="currentIcon"
                 />
                 <!-- <img
                     :key="randomValue"
@@ -47,9 +42,9 @@ export default {
         //     type: Number,
         //     default: 5000,
         // }
-        tileId: {
+        tileIndex: {
             required: true,
-            type: String,
+            type: Number,
         }
     },
     data() {
@@ -58,6 +53,20 @@ export default {
             intervalId: 0,
             randomValue: 0,
         }
+    },
+    computed: {
+        tileContent() {
+            return this.$store.getters['grid/tileContent'](this.tileIndex);
+        },
+        currentTurn() {
+            return this.$store.getters['grid/entity']('currentTurn');
+        },
+        currentIcon() {
+            return {
+                'far fa-circle': (this.tileContent === 'player'),
+                'fas fa-times': (this.tileContent === 'IA'),
+            };
+        },
     },
     methods: {
         changeState(state) {
@@ -82,7 +91,7 @@ export default {
     position: absolute;
     width: 200px;
     height: 200px;
-    background-color: lightgrey;
+    border: 1px solid rgb(142, 16, 214);
     opacity: 0.5;
 }
 

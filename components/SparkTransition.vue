@@ -6,13 +6,12 @@
 			tag="div"
 		>
 			<div
-				v-for="(id, index) in toDisplay"
+				v-for="(id, index) in homeGrid"
 				@click="switchTileState(index)"
 				:key="`transition-${index}`"
 				class="spark-content"
 			>
-				<image-card
-					:tileId="id"/>
+				<image-card :tileIndex="index"/>
 			</div>
 		</transition-group>
 	</div>
@@ -25,21 +24,21 @@ export default {
 	components: {
 		ImageCard
 	},
-	props: {
-		toDisplay: {
-			type: Array,
-			required: true,
+	computed: {
+		currentTurn() {
+			return this.$store.getters['grid/entity']('currentTurn');
+		},
+		homeGrid() {
+			return this.$store.getters['grid/entity']('homeGrid');
 		},
 	},
-	data() {
-		return {
-			gridState: 'IA', // Can either be 'player' or 'IA'
-		};
-	},
 	methods:{
+		switchTurn() {
+			this.$store.commit('grid/switchTurn');
+		},
 		switchTileState(index) {
-			this.toDisplay[index] = this.gridState;
-			this.$forceUpdate();
+			this.$store.commit('grid/setGridTile', { index, content: this.currentTurn })
+			this.switchTurn();
 		},
 	}
 }

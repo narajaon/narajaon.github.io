@@ -1,12 +1,9 @@
 <template>
     <div
         class="page-container"
-        @click="triggerAnimation()"
     >
         <home-banner/>
-        <spark-transition
-            :toDisplay="homeGrid"
-        />
+        <spark-transition/>
     </div>
 </template>
 
@@ -21,19 +18,5 @@ export default {
         SparkTransition,
         HomeBanner,
     },
-    data() {
-        return {
-            homeGrid: [
-                'empty', 'empty', 'empty',
-                'empty', 'empty', 'empty',
-                'empty', 'empty', 'empty',
-            ]
-        }
-    },
-    methods: {
-        triggerAnimation() {
-            this.displayGrid = !this.displayGrid;
-        }
-    }
 }
 </script>
