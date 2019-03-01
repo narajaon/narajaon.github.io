@@ -1,11 +1,25 @@
 <template>
     <div class="contact-me">
         <div class="contacts">
-            <h2>N'hésite pas à me laisser<br>tes coordonnées :</h2>
-            <input type="email" placeholder="Email">
+            <h3>N'hésite pas à me laisser tes coordonnées</h3>
+            <input
+                type="email"
+                placeholder="Email"
+                autocomplete="on"
+                class="email"
+            >
+        </div>
+        <div>
+            <h3>Un commentaire ?</h3>
+            <textarea
+                type="text"
+                maxlength="150"
+                placeholder="J'adore ton site Fabien !"
+                class="comment"
+            />
         </div>
         <div class="social-links">
-            <h2>Tu peux aussi me retrouver sur :</h2>
+            <h3>Tu peux aussi me retrouver sur</h3>
             <social-bar/>
         </div>
     </div>
@@ -20,19 +34,25 @@ export default {
 }
 </script>
 
-
 <style scoped>
-.contact-me {
-    background-color: white;
-    padding: 30px;
+.email {
+    width: 60%;
+}
+
+.comment {
+    width: 100%;
 }
 
 .contact-me>div {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .contact-me>div:last-child {
     margin-bottom: 0;
+}
+
+.social-links {
+    text-align: center;
 }
 
 .social-bar {
@@ -43,11 +63,18 @@ h2 {
     margin-bottom: 10px;
 }
 
-input {
+input, textarea {
     padding: 3px;
+    font-size: 15px;
+    margin-top: 5px;
 }
 
-input:focus {
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+input:focus, textarea:focus {
     outline: none;
 }
 </style>

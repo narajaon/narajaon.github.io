@@ -18,10 +18,14 @@ html {
     background-color: #f7f7f7;
 }
 
+input, textarea {
+    border: 1px solid rgb(186, 183, 189);
+}
+
 .page-enter-active, .page-leave-active {
     transition: all 0.3s;
   }
-  
+
 .page-enter, .page-leave-to {
     opacity: 0;
 }

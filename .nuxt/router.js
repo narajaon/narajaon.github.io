@@ -2,13 +2,27 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _3e1530af = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
-const _5dcd0b74 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _5df8a7d8 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _1e88f24e = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
 if (process.client) {
-  window.history.scrollRestoration = 'manual'
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual'
+
+    // reset scrollRestoration to auto when leaving page, allowing page reload
+    // and back-navigation from other pages to use the browser to restore the
+    // scrolling position.
+    window.addEventListener('beforeunload', () => {
+      window.history.scrollRestoration = 'auto'
+    })
+
+    // Setting scrollRestoration to manual again when returning to this page.
+    window.addEventListener('load', () => {
+      window.history.scrollRestoration = 'manual'
+    })
+  }
 }
 const scrollBehavior = function (to, from, savedPosition) {
   // if the returned position is falsy or an empty object,
@@ -67,11 +81,11 @@ export function createRouter() {
 
     routes: [{
       path: "/about",
-      component: _3e1530af,
+      component: _5df8a7d8,
       name: "about"
     }, {
       path: "/",
-      component: _5dcd0b74,
+      component: _1e88f24e,
       name: "index"
     }],
 

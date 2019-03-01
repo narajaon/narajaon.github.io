@@ -3,19 +3,19 @@
         class="page-container"
     >
         <home-banner/>
-        <spark-transition/>
+        <tic-tac-grid/>
     </div>
 </template>
 
 <script>
 import ImageCard from '~/components/ImageCard.vue';
-import SparkTransition from '~/components/SparkTransition.vue';
+import TicTacGrid from '~/components/TicTacGrid.vue';
 import HomeBanner from '~/components/HomeBanner.vue';
 
 export default {
     components: {
         ImageCard,
-        SparkTransition,
+        TicTacGrid,
         HomeBanner,
     },
 }

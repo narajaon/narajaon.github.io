@@ -11,7 +11,8 @@
             name="fade"
         >
             <dialog-container v-if="contactMeDialog.isVisible">
-                <contact-me-card slot="content"/>
+                <h1 slot="header">😎 Pour me contacter</h1>
+                <contact-me-card slot="body"/>
             </dialog-container>
         </transition>
     </div>
@@ -31,7 +32,7 @@ export default {
         ContactMeCard,
     },
     computed: {
-        contactMeDialog() {            
+        contactMeDialog() {
             return this.$store.getters['dialogs/entity']('contactMe');
         },
     },
