@@ -1,7 +1,11 @@
 <template>
     <div class="about-page">
         <div class="profile-banner">
-            <img src="~assets/images/Fabien-copie-2-570x570.jpg" alt="profile picture">
+            <img
+                src="~assets/images/Fabien-copie-2-570x570.jpg"
+                alt="profile picture"
+                align="left"
+            />
             <div class="profile-infos">
                 <h1>About me</h1>
                 <p class="page-content">
@@ -46,7 +50,7 @@ export default {
 
 <style scoped>
 .about-page {
-    width: 620px;
+    /* width: 620px; */
 }
 
 .stack-list {
@@ -54,8 +58,8 @@ export default {
 }
 
 .profile-banner {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
     padding-bottom: 30px;
 }
 
@@ -73,13 +77,14 @@ export default {
 
 .page-content {
     color: #747272;
-    font-size: 14px;
+    /* font-size: 14px; */
 }
 
 img {
-    min-width: 200px;
-    width: 200px;
-    height: 200px;
+    /* min-width: 100px; */
+    /* width: 200px; */
+    margin: 10px;
+    height: 130px;
 }
 
 h3 {

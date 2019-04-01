@@ -4,7 +4,7 @@
             class="page-wrapper"
         >
             <navigation-bar/>
-            <nuxt/>
+            <nuxt class="app"/>
             <social-bar/>
         </div>
         <transition
@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style scoped>
+.app {
+    margin: 5px;
+}
+
 .default-layout {
     display: flex;
     justify-content: center;

@@ -26,13 +26,12 @@ export default {
     justify-content: flex-end;
     border-bottom: 1px solid #f3efef;
     box-shadow: 0 5px 24px -15px grey;
-    height: 40px;
     margin-bottom: 30px;
+    min-width: 100vw;
 }
 
 .nav-button {
     padding: 10px;
-    font-size: 18px;
     margin-left: 10px;
 }
 

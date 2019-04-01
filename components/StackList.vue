@@ -59,6 +59,9 @@ export default {
 
 .stack-list {
     display: flex;
+    flex-wrap: wrap;
+    /* overflow: scroll; */
+    /* max-width: 100vw; */
 }
 
 span {
@@ -66,8 +69,8 @@ span {
 }
 
 img {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     margin-bottom: 5px;
     filter: grayscale(50%);
 }
