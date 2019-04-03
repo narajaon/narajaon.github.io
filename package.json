@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=master --cleanup"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   "devDependencies": {
     "eslint": "^5.13.0",
     "eslint-config-vue": "^2.0.2",
-    "eslint-plugin-vue": "^5.1.0"
+    "eslint-plugin-vue": "^5.1.0",
+    "push-dir": "^0.4.1"
   }
 }
