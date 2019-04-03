@@ -50,7 +50,6 @@ export default {
 
 <style scoped>
 .about-page {
-    /* width: 620px; */
 }
 
 .stack-list {
@@ -58,13 +57,16 @@ export default {
 }
 
 .profile-banner {
-    /* display: flex; */
-    /* justify-content: space-between; */
     padding-bottom: 30px;
 }
 
+@media (min-width: 426px) {
+    .profile-banner {
+        display: flex;
+    }
+}
+
 .profile-infos {
-    padding-left: 20px;
 }
 
 .page-category {
@@ -77,13 +79,10 @@ export default {
 
 .page-content {
     color: #747272;
-    /* font-size: 14px; */
 }
 
 img {
-    /* min-width: 100px; */
-    /* width: 200px; */
-    margin: 10px;
+    margin-right: 10px;
     height: 130px;
 }
 

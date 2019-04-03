@@ -22,17 +22,31 @@ export default {
         return {
             projects: [
                 {
-                    title: "RTV1",
-                    description: "Coding a RayTracer from scratch",
-                    src: "https://raw.githubusercontent.com/narajaon/RTv1/master/readme_pics/simple_scene.png",
+                    title: "PROJET 1",
+                    description: "DOING SOME COOL STUFF",
+                    src: "",
                 },
                 {
-                    title: "21SH",
-                    description: "Coding a Shell from scratch",
-                    src: "https://raw.githubusercontent.com/narajaon/Visual_recognition/master/readmePics/Gallery.png",
+                    title: "PROJET 2",
+                    description: "DOING SOME AWESOME STUFF",
+                    src: "",
+                },
+                {
+                    title: "PROJET 3",
+                    description: "DOING SOME AMAZING STUFF",
+                    src: "",
                 }
             ],
+            isLoading: false,
         };
+    },
+    async mounted() {
+        this.isLoading = true;
+        const cats = await this.$axios.get('https://api.thecatapi.com/v1/images/search?limit=3&size=med');
+        this.projects.forEach((element, index) => {
+            element.src = cats.data[index].url;
+        });
+        this.isLoading = false;
     }
 }
 </script>

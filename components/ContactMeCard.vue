@@ -43,6 +43,16 @@ export default {
     width: 100%;
 }
 
+.contact-me {
+    width: 80vw;
+}
+
+@media (min-width: 425px) {
+    .contact-me {
+        max-width: 400px;
+    }
+}
+
 .contact-me>div {
     margin-bottom: 15px;
 }

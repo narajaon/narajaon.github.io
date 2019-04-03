@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/narajaon/Portofilo#readme",
   "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
     "nuxt": "^2.4.3"
   },
   "devDependencies": {

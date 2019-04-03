@@ -11,7 +11,6 @@
             name="fade"
         >
             <dialog-container v-if="contactMeDialog.isVisible">
-                <h1 slot="header">😎 Pour me contacter</h1>
                 <contact-me-card slot="body"/>
             </dialog-container>
         </transition>
