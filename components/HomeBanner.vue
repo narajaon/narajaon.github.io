@@ -11,7 +11,7 @@
 
 <style scoped>
 .home-banner {
-    /* padding-bottom: 30px; */
+    padding-bottom: 30px;
 }
 
 .banner-content {

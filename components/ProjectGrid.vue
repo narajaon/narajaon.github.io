@@ -1,14 +1,27 @@
 <template>
     <div class="wrapper">
         <div
-            v-for="project in projects"
+            v-for="(project, index) in projects"
             :key="project.title"
             class="project">
             <h3 class="title">{{project.title}}</h3>
-            <span class="description">{{project.description}}</span>
             <div
                 v-if="!isLoading"
-                class="banner-container">
+                class="banner-container"
+                @mouseenter="trackBannerState(index)"
+                @mouseleave="trackBannerState(null)"
+            >
+                <transition
+                    name="fade"
+                    mode="in-out"
+                >
+                    <div
+                        v-if="isHovered(index)"
+                        class="overlay"
+                    >
+                        <span class="description">{{project.description}}</span>
+                    </div>
+                </transition>
                 <img
                     :src="project.src"
                     alt="Project image"
@@ -18,6 +31,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     data() {
@@ -40,7 +54,16 @@ export default {
                 }
             ],
             isLoading: false,
+            hoveredBanner: null,
         };
+    },
+    methods: {
+        trackBannerState(index) {
+            this.hoveredBanner = index;
+        },
+        isHovered(index) {
+            return this.hoveredBanner === index;
+        },
     },
     async mounted() {
         this.isLoading = true;
@@ -52,6 +75,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .title {
 }
@@ -60,17 +84,37 @@ export default {
     color: #747272;
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+}
+
 .project {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0px;
 }
 
 .banner-container {
     width: 100%;
-    max-height: 200px;
+    height: 250px;
     overflow: hidden;
+    position: relative;
+}
+
+.banner-container:hover {
+    cursor: pointer;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid rgb(142, 16, 214);
 }
 
 .banner {

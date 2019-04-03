@@ -31,3 +31,11 @@ input, textarea {
     transform: translateX(-20px);
     opacity: 0;
 }
+
+.fade-enter-active, .fade-leave-active {
+    transition: all 0.4s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

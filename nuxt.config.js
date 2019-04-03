@@ -17,6 +17,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Meta description' },
     ]
   },
+  loading: {
+    color: 'rgb(142, 16, 214)',
+  },
   transition: {
     name: 'page',
     mode: 'out-in',

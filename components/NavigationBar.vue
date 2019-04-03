@@ -26,9 +26,6 @@ export default {
     justify-content: flex-end;
     border-bottom: 1px solid #f3efef;
     box-shadow: 0 5px 24px -15px grey;
-    margin-bottom: 30px;
-    /* min-width: 100vw; */
-    /* width: 100%; */
 }
 
 .nav-button {
