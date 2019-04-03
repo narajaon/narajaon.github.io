@@ -48,6 +48,12 @@ export default {
     justify-content: center;
 }
 
+@media (min-width: 768px) {
+    .page-wrapper {
+        max-width: 768px;
+    }
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: all 0.5s;
 }

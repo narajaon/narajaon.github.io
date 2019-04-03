@@ -6,7 +6,9 @@
             class="project">
             <h3 class="title">{{project.title}}</h3>
             <span class="description">{{project.description}}</span>
-            <div class="banner-container">
+            <div
+                v-if="!isLoading"
+                class="banner-container">
                 <img
                     :src="project.src"
                     alt="Project image"
@@ -42,7 +44,7 @@ export default {
     },
     async mounted() {
         this.isLoading = true;
-        const cats = await this.$axios.get('https://api.thecatapi.com/v1/images/search?limit=3&size=med');
+        const cats = await this.$axios.get(`https://api.thecatapi.com/v1/images/search?limit=${this.projects.length}&size=med`);
         this.projects.forEach((element, index) => {
             element.src = cats.data[index].url;
         });
