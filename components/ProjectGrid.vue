@@ -5,29 +5,34 @@
             :key="project.title"
             class="project">
             <h3 class="title">{{project.title}}</h3>
-            <div
-                v-if="!isLoading"
-                class="banner-container"
-                @mouseenter="trackBannerState(index)"
-                @mouseleave="trackBannerState(null)"
+            <transition
+                name="transform"
             >
-                <transition
-                    name="fade"
-                    mode="in-out"
+                <div
+                    v-show="project.show"
+                    class="banner-container"
+                    @mouseenter="trackBannerState(index)"
+                    @mouseleave="trackBannerState(null)"
                 >
-                    <div
-                        v-if="isHovered(index)"
-                        class="overlay"
+                    <transition
+                        name="fade"
+                        mode="in-out"
                     >
-                        <span class="description">{{project.description}}</span>
-                    </div>
-                </transition>
-                <img
-                    :src="project.src"
-                    alt="Project image"
-                    class="banner"
-                />
-            </div>
+                        <div
+                            v-if="isHovered(index)"
+                            class="overlay"
+                        >
+                            <span class="description">{{project.description}}</span>
+                        </div>
+                    </transition>
+                    <img
+                        v-if="project.src"
+                        :src="project.src"
+                        alt="Project image"
+                        class="banner"
+                    />
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -41,16 +46,19 @@ export default {
                     title: "PROJET 1",
                     description: "DOING SOME COOL STUFF",
                     src: "",
+                    show: false,
                 },
                 {
                     title: "PROJET 2",
                     description: "DOING SOME AWESOME STUFF",
                     src: "",
+                    show: false,
                 },
                 {
                     title: "PROJET 3",
                     description: "DOING SOME AMAZING STUFF",
                     src: "",
+                    show: false,
                 }
             ],
             isLoading: false,
@@ -61,6 +69,11 @@ export default {
         trackBannerState(index) {
             this.hoveredBanner = index;
         },
+        showBanner(index) {
+            setTimeout(() => {
+                this.projects[index].show = true;
+            }, index * 500);
+        },
         isHovered(index) {
             return this.hoveredBanner === index;
         },
@@ -70,6 +83,7 @@ export default {
         const cats = await this.$axios.get(`https://api.thecatapi.com/v1/images/search?limit=${this.projects.length}&size=med`);
         this.projects.forEach((element, index) => {
             element.src = cats.data[index].url;
+            this.showBanner(index)
         });
         this.isLoading = false;
     }
@@ -99,6 +113,8 @@ export default {
     height: 250px;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
+    border: 1px solid grey;
 }
 
 .banner-container:hover {
@@ -114,7 +130,7 @@ export default {
     background-color: #f7f7f7;
     position: absolute;
     box-sizing: border-box;
-    border: 2px solid rgb(142, 16, 214);
+    border: 1px solid rgb(142, 16, 214);
 }
 
 .banner {

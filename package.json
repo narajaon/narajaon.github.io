@@ -22,7 +22,8 @@
   "homepage": "https://github.com/narajaon/Portofilo#readme",
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
-    "nuxt": "^2.4.3"
+    "nuxt": "^2.4.3",
+    "vue-particles": "^1.0.9"
   },
   "devDependencies": {
     "eslint": "^5.13.0",

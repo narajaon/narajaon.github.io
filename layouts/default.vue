@@ -1,5 +1,25 @@
 <template>
     <div class="default-layout">
+        <vue-particles
+            color="#cfcfd1"
+            :particleOpacity="0.7"
+            :particlesNumber="80"
+            shapeType="circle"
+            :particleSize="4"
+            linesColor="#cfcfd1"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.4"
+            :linesDistance="150"
+            :moveSpeed="3"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+            :move="true"
+            direction="top-right"
+            class="particles"
+        />
         <div
             class="page-wrapper"
         >
@@ -39,6 +59,16 @@ export default {
 </script>
 
 <style scoped>
+.particles {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+.page-wrapper {
+    position: relative;
+}
+
 .app {
     margin: 5px;
 }
@@ -52,14 +82,6 @@ export default {
     .page-wrapper {
         max-width: 768px;
     }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: all 0.5s;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 
 .social-bar {

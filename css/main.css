@@ -23,15 +23,32 @@ input, textarea {
     border: 1px solid rgb(186, 183, 189);
 }
 
+/* page */
 .page-enter-active, .page-leave-active {
     transition: all 0.3s;
 }
 
 .page-enter, .page-leave-to {
-    transform: translateX(-20px);
     opacity: 0;
 }
 
+
+/* transformX */
+.transform-enter-active {
+    transition: all 1s;
+}
+
+.transform-enter{
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.transform-leave-to {
+    opacity: 0;
+}
+
+
+/* fade */
 .fade-enter-active, .fade-leave-active {
     transition: all 0.4s;
 }

@@ -2,6 +2,14 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
   ],
+  plugins: [
+    {
+      src:"~plugins/vue-particles", ssr:false,
+    },
+  ],
+  build: {
+    vendor: ['vue-particles'],
+  },
   head: {
     link: [
       {
