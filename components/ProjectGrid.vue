@@ -29,7 +29,6 @@
                             :src="project.src"
                             alt="Project image"
                             class="banner"
-                            ref="banner"
                         />
                     </div>
                 </div>
@@ -69,10 +68,6 @@ export default {
     computed: {
     },
     methods: {
-        imageLoaded(index) {
-            if (!this.$refs["banner"] || !this.projects[index].show) return false;
-            return this.$refs["banner"][index].complete;
-        },
         trackBannerState(index) {
             this.hoveredBanner = index;
         },
@@ -87,9 +82,7 @@ export default {
     },
     async mounted() {
         this.isLoading = true;
-        // const cats = await this.$axios.get(`https://api.thecatapi.com/v1/images/search?limit=${this.projects.length}&size=med`);
         this.projects.forEach((element, index) => {
-            // element.src = cats.data[index].url;
             this.showBanner(index)
         });
         this.isLoading = false;
@@ -99,7 +92,7 @@ export default {
 
 <style scoped>
 .description {
-    color: #747272;
+    color: #ffffff;
 }
 
 .wrapper {
@@ -115,7 +108,6 @@ export default {
 .banner-container {
     width: 100%;
     max-height: 250px;
-    /* max-height: 0px; */
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
@@ -132,19 +124,12 @@ export default {
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: #f7f7f7;
+    background-color: #252525b7;
     position: absolute;
     box-sizing: border-box;
-    border: 1px solid rgb(142, 16, 214);
 }
 
 .banner {
-    border: 1px solid rgb(185, 185, 185);
     width: 100%;
 }
-
-/* .collapse {
-    max-height: 250px;
-    transition: all 1s;
-} */
 </style>

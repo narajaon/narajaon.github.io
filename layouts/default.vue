@@ -1,25 +1,9 @@
 <template>
     <div class="default-layout">
-        <vue-particles
-            color="#b4b6ba"
-            :particleOpacity="0.7"
-            :particlesNumber="10"
-            shapeType="edge"
-            :particleSize="4"
-            linesColor="#b4b6ba"
-            :linesWidth="1"
-            :lineLinked="true"
-            :lineOpacity="0.4"
-            :linesDistance="150"
-            :moveSpeed="2"
-            :hoverEffect="true"
-            hoverMode="grab"
-            :clickEffect="true"
-            clickMode="push"
-            :move="true"
-            direction="top-right"
+        <div
             class="particles"
-        />
+            id="particlejs-container"
+        ></div>
         <div
             class="page-wrapper"
         >
@@ -42,6 +26,7 @@ import NavigationBar from '~/components/NavigationBar';
 import SocialBar from '~/components/SocialBar';
 import ContactMeCard from '~/components/ContactMeCard';
 import DialogContainer from '~/components/DialogContainer';
+import particlesConf from '~/assets/particles.json'
 
 export default {
     components: {
@@ -55,6 +40,17 @@ export default {
             return this.$store.getters['dialogs/entity']('contactMe');
         },
     },
+    created () {
+        require('particles.js')
+        this.$nextTick(() => {
+            this.initParticleJS();
+        });
+    },
+    methods: {
+        initParticleJS () {
+            particlesJS('particlejs-container', particlesConf);
+        }
+    }
 }
 </script>
 
