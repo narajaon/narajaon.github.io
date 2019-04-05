@@ -30,6 +30,7 @@ input, textarea {
 
 .page-enter, .page-leave-to {
     opacity: 0;
+    transform: translateX(-20px);
 }
 
 

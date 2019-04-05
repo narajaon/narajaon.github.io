@@ -11,7 +11,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_5f1ccd04 from 'nuxt_plugin_axios_5f1ccd04' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_axios_4a768658 from 'nuxt_plugin_axios_4a768658' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_vueparticles_2ba66caf from 'nuxt_plugin_vueparticles_2ba66caf' // Source: ../plugins/vue-particles (mode: 'client')
 
 // Component: <NoSsr>
@@ -147,7 +147,7 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_5f1ccd04 === 'function') await nuxt_plugin_axios_5f1ccd04(app.context, inject)
+  if (typeof nuxt_plugin_axios_4a768658 === 'function') await nuxt_plugin_axios_4a768658(app.context, inject)
 
   if (process.client) {
     if (typeof nuxt_plugin_vueparticles_2ba66caf === 'function') await nuxt_plugin_vueparticles_2ba66caf(app.context, inject)
