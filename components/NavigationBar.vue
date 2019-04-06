@@ -24,7 +24,7 @@ export default {
 .navigation-bar {
     display: flex;
     justify-content: flex-end;
-    box-shadow: 0 5px 15px -15px grey;
+    box-shadow: 0 8px 15px -15px grey;
     width: 100%;
 }
 

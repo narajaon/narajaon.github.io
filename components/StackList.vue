@@ -1,47 +1,52 @@
 <template>
     <div
         class="stack-list">
-        <h3 class="subtitle">WEB STACK</h3>
-        <div
-            v-for="stack in stackList"
-            :key="stack.name"
-            class="stack"
-        >
-            <img
-                :src="stack.image"
-                :alt="`${stack.name} icon`"
-                class="skill-icon"
-            />
+        <div style="margin-right: 20px">
+            <h3 class="subtitle">WEB STACK</h3>
             <div
+                v-for="stack in stackList"
+                :key="stack.name"
+                class="stack"
             >
+                <img
+                    :src="stack.image"
+                    :alt="`${stack.name} icon`"
+                    class="skill-icon"
+                />
                 <div
-                    class="stack-name"
-                    :class="stack.name"
-                >{{ stack.name }}</div>
-                <div
-                    class="skill-wrapper"
                 >
                     <div
-                        v-for="tag in stack.tags"
-                        :key="tag"
-                        class="skill"
-                    >{{ tag }}</div>
+                        class="stack-name"
+                        :class="stack.name"
+                    >{{ stack.name }}</div>
+                    <div
+                        class="skill-wrapper"
+                    >
+                        <div
+                            v-for="tag in stack.tags"
+                            :key="tag"
+                            class="skill"
+                        >{{ tag }}</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <h3 class="subtitle">OTHER SKILLS</h3>
-        <div style="display: flex">
-            <div
-                v-for="other in otherSkills"
-                :key="other.name"
-                class="other-skill"
-            >
-                <img
-                    :src="other.image"
-                    :alt="`${other.name} icon`"
-                    class="other-skill-icon"
-                />
-                <div style="text-align: center">{{other.name}}</div>
+
+        <div>
+            <h3 class="subtitle">OTHER SKILLS</h3>
+            <div class="other-skill-wrapper">
+                <div
+                    v-for="other in otherSkills"
+                    :key="other.name"
+                    class="other-skill"
+                >
+                    <img
+                        :src="other.image"
+                        :alt="`${other.name} icon`"
+                        class="other-skill-icon"
+                    />
+                    <div style="text-align: center">{{other.name}}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +60,7 @@ export default {
                 {
                     name: 'Vue.js',
                     image: '/stack/vue.png',
-                    tags: ['Nuxt state/store', 'elementUI', 'vue reactivity', 'vue animations']
+                    tags: ['Nuxt / Vuex', 'elementUI', 'axios', 'vue animations']
                 },
                 {
                     name: 'Angular',
@@ -76,9 +81,9 @@ export default {
             otherSkills: [
                 { name: 'C', image: '/stack/c.png'},
                 { name: 'Swift', image: '/stack/swift.png'},
+                { name: 'Shell', image: '/stack/shell.png'},
                 { name: 'C++', image: '/stack/cpp.png'},
                 { name: 'Python', image: '/stack/python.png'},
-                // { name: 'BASH', src: ''},
             ],
         }
     }
@@ -97,11 +102,16 @@ export default {
 }
 
 .stack-name {
-    /* text-transform: uppercase; */
 }
 
 .stack-list {
     margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+    .stack-list {
+        display: flex;
+    }
 }
 
 .skill-wrapper {
@@ -112,7 +122,7 @@ export default {
 .skill {
     color: #747272;
     padding: 2px 5px;
-    border: 1px solid #747272;
+    border: 1px solid #c5c5c5;
     border-radius: 2px;
     white-space: nowrap;
     margin: 3px 0;
@@ -131,14 +141,19 @@ span {
     filter: grayscale(40%);
 }
 
+.other-skill-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    grid-gap: 7px; 
+}
+
 .other-skill {
-    margin-right: 10px;
+    /* margin-right: 13px; */
 }
 
 .other-skill-icon {
-    height: 40px;
-    width: 40px;
-    margin-right: 10px;
+    height: 50px;
+    width: 50px;
     filter: grayscale(40%);
 }
 </style>

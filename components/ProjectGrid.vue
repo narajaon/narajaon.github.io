@@ -8,7 +8,7 @@
                 name="transform"
             >
                 <div v-show="project.show">
-                    <h3 class="title">{{project.title}}</h3>
+                    <!-- <h3 class="title">{{project.title}}</h3> -->
                     <div
                         :class="{ 'banner-container': true }"
                         @mouseenter="trackBannerState(index)"
@@ -22,7 +22,7 @@
                                 v-if="isHovered(index)"
                                 class="overlay"
                             >
-                                <span class="description">{{project.description}}</span>
+                                <span class="description">{{project.title}} - {{project.description}}</span>
                             </div>
                         </transition>
                         <img
