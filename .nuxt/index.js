@@ -11,7 +11,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_e16d3780 from 'nuxt_plugin_axios_e16d3780' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_axios_4a768658 from 'nuxt_plugin_axios_4a768658' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_vueparticles_2ba66caf from 'nuxt_plugin_vueparticles_2ba66caf' // Source: ../plugins/vue-particles (mode: 'client')
 
 // Component: <NoSsr>
@@ -109,8 +109,7 @@ async function createApp(ssrContext) {
     payload: ssrContext ? ssrContext.payload : undefined,
     req: ssrContext ? ssrContext.req : undefined,
     res: ssrContext ? ssrContext.res : undefined,
-    beforeRenderFns: ssrContext ? ssrContext.beforeRenderFns : undefined,
-    ssrContext
+    beforeRenderFns: ssrContext ? ssrContext.beforeRenderFns : undefined
   })
 
   const inject = function (key, value) {
@@ -148,12 +147,10 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_e16d3780 === 'function') {
-    await nuxt_plugin_axios_e16d3780(app.context, inject)
-  }
+  if (typeof nuxt_plugin_axios_4a768658 === 'function') await nuxt_plugin_axios_4a768658(app.context, inject)
 
-  if (process.client && typeof nuxt_plugin_vueparticles_2ba66caf === 'function') {
-    await nuxt_plugin_vueparticles_2ba66caf(app.context, inject)
+  if (process.client) {
+    if (typeof nuxt_plugin_vueparticles_2ba66caf === 'function') await nuxt_plugin_vueparticles_2ba66caf(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
