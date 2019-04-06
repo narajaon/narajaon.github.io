@@ -1,5 +1,8 @@
 <template>
-    <div class="default-layout">
+    <div 
+        class="default-layout"
+        :style="defaultLayoutBG"
+    >
         <div
             class="particles"
             id="particlejs-container"
@@ -26,7 +29,9 @@ import NavigationBar from '~/components/NavigationBar';
 import SocialBar from '~/components/SocialBar';
 import ContactMeCard from '~/components/ContactMeCard';
 import DialogContainer from '~/components/DialogContainer';
+import Partiles from 'particles.js'
 import particlesConf from '~/assets/particles.json'
+import Vue from "vue";
 
 export default {
     components: {
@@ -35,22 +40,29 @@ export default {
         DialogContainer,
         ContactMeCard,
     },
+    data() {
+        return {
+            conf: particlesConf,
+        };
+    },
     computed: {
         contactMeDialog() {
             return this.$store.getters['dialogs/entity']('contactMe');
         },
+        defaultLayoutBG() {
+            return {
+                'background-color': `#${this.$store.getters['projects/currentTheme']().bg}`,
+            };
+        },
     },
-    created () {
-        require('particles.js')
-        this.$nextTick(() => {
-            this.initParticleJS();
-        });
+    mounted () {
+        this.initParticleJS();
     },
     methods: {
         initParticleJS () {
-            particlesJS('particlejs-container', particlesConf);
-        }
-    }
+            particlesJS('particlejs-container', this.conf);
+        },
+    },
 }
 </script>
 
@@ -72,6 +84,10 @@ export default {
 .default-layout {
     display: flex;
     justify-content: center;
+    background-color: #ebe8e8;
+    height: 100%;
+    min-height: 100vh;
+    transition: background-color 1s;
 }
 
 @media (min-width: 768px) {

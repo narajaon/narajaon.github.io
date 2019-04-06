@@ -7,30 +7,28 @@
             <transition
                 name="transform"
             >
-                <div v-show="project.show">
-                    <!-- <h3 class="title">{{project.title}}</h3> -->
-                    <div
-                        :class="{ 'banner-container': true }"
-                        @mouseenter="trackBannerState(index)"
-                        @mouseleave="trackBannerState(null)"
+                <div
+                    v-show="project.show"
+                    @mouseenter="trackBannerState(index, project.theme.particles)"
+                    @mouseleave="trackBannerState(null, 'ffffff')"
+                    class="banner-container"
+                >
+                    <transition
+                        name="fade"
+                        mode="in-out"
                     >
-                        <transition
-                            name="fade"
-                            mode="in-out"
+                        <div
+                            v-if="isHovered(index)"
+                            class="overlay"
                         >
-                            <div
-                                v-if="isHovered(index)"
-                                class="overlay"
-                            >
-                                <span class="description">{{project.title}} - {{project.description}}</span>
-                            </div>
-                        </transition>
-                        <img
-                            :src="project.src"
-                            alt="Project image"
-                            class="banner"
-                        />
-                    </div>
+                            <span class="description">{{project.title}} - {{project.description}}</span>
+                        </div>
+                    </transition>
+                    <img
+                        :src="project.src"
+                        alt="Project image"
+                        class="banner"
+                    />
                 </div>
             </transition>
         </div>
@@ -38,54 +36,61 @@
 </template>
 
 <script>
+import Partiles from 'particles.js'
+
 export default {
     data() {
         return {
-            projects: [
-                {
-                    title: "PROJECT 1",
-                    description: "DOING SOME COOL STUFF",
-                    src: "https://www.humanesociety.org/sites/default/files/styles/1441x612/public/2018/08/kitten-440379.jpg?h=f6a7b1af&itok=HVqvfhtg",
-                    show: false,
-                },
-                {
-                    title: "PROJECT 2",
-                    description: "DOING SOME AWESOME STUFF",
-                    src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-                    show: false,
-                },
-                {
-                    title: "PROJECT 3",
-                    description: "DOING SOME AMAZING STUFF",
-                    src: "https://images.unsplash.com/photo-1488740304459-45c4277e7daf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-                    show: false,
-                }
-            ],
             isLoading: false,
-            hoveredBanner: null,
         };
     },
     computed: {
+        projects() {
+            return this.$store.getters['projects/allProjects']();
+        },
+        activeBanner() {
+            return this.$store.getters['projects/activeBanner']();
+        },
     },
     methods: {
-        trackBannerState(index) {
-            this.hoveredBanner = index;
+        trackBannerState(index, theme) {
+            this.switchParticlesColor(theme);
+            this.$store.commit('projects/bannerHoverState', { hoveredBannerIndex: index })
         },
-        showBanner(index) {
+        toggleBannerVisibility(index, visibility) {
             setTimeout(() => {
-                this.projects[index].show = true;
+                this.$store.commit('projects/bannerVisibility', { index, show: visibility })
             }, index * 500);
         },
         isHovered(index) {
-            return this.hoveredBanner === index;
+            return this.activeBanner === index;
+        },
+        hexToRgb(hex) {
+            const bigint = parseInt(hex, 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return { r, g, b };
+        },
+        switchParticlesColor(color) {
+            const rgbFromHex = this.hexToRgb(color);
+            pJSDom[0].pJS.particles.array.forEach((elem, i) => {
+                pJSDom[0].pJS.particles.array[i].color.value = `#${color}`;
+                pJSDom[0].pJS.particles.array[i].color.rgb = rgbFromHex;
+            });
         },
     },
-    async mounted() {
+    mounted() {
         this.isLoading = true;
         this.projects.forEach((element, index) => {
-            this.showBanner(index)
+            this.toggleBannerVisibility(index, true)
         });
         this.isLoading = false;
+    },
+    destroyed() {
+        this.projects.forEach((element, index) => {
+            this.toggleBannerVisibility(index, false);
+        });
     }
 }
 </script>
@@ -93,12 +98,13 @@ export default {
 <style scoped>
 .description {
     color: #ffffff;
+    font-weight: bold;
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: auto;
-    grid-gap: 20px;
+    grid-gap: 10px;
 }
 
 .project {
@@ -124,7 +130,7 @@ export default {
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: #252525b7;
+    background-color: #000000de;
     position: absolute;
     box-sizing: border-box;
 }

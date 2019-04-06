@@ -19,6 +19,7 @@ void (function updateModules() {
 
   resolveStoreModules(require('@/store/dialogs.js'), 'dialogs.js')
   resolveStoreModules(require('@/store/grid.js'), 'grid.js')
+  resolveStoreModules(require('@/store/projects.js'), 'projects.js')
 
   // If the environment supports hot reloading...
 
@@ -27,6 +28,7 @@ void (function updateModules() {
     module.hot.accept([
       '@/store/dialogs.js',
       '@/store/grid.js',
+      '@/store/projects.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

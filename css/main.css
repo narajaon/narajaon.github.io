@@ -18,8 +18,8 @@
 }
 
 html {
-    background-color: #ebe8e8;
     min-height: 100%;
+    /* background-color: #ebe8e8; */
     margin: 0;
 }
 
