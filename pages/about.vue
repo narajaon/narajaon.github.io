@@ -16,7 +16,7 @@
         </div>
 
         <stack-list/>
-
+<!-- 
         <div class="page-category">
             <h3>What kind of dev I am</h3>
             <p class="page-content">
@@ -25,15 +25,15 @@
                 qui paulatim eruditiores facti processu temporis ad nocendum per clandestinos versutosque rumigerulos conpertis leviter addere quaedam male suetos
                 falsa et placentia sibi discentes, adfectati regni vel artium nefandarum calumnias insontibus adfligebant.
             </p>
-        </div>
-        <div class="page-category">
+        </div> -->
+        <!-- <div class="page-category">
             <h3 class="align-end">What kind of dev I'm not</h3>
             <p class="page-content">
                 Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult,
                 et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem.
                 re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.
             </p>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -53,11 +53,10 @@ export default {
 }
 
 .stack-list {
-    padding-bottom: 30px;
 }
 
 .profile-banner {
-    padding-bottom: 30px;
+    /* padding-bottom: 10px; */
 }
 
 @media (min-width: 426px) {
