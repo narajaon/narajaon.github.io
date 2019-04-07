@@ -84,7 +84,6 @@ export default {
 .default-layout {
     display: flex;
     justify-content: center;
-    background-color: #ebe8e8;
     height: 100%;
     min-height: 100vh;
     transition: background-color 1s;

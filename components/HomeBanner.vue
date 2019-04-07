@@ -1,6 +1,9 @@
 <template>
     <div class="home-banner">
-        <h5 class="banner-owner">narajaon's</h5>
+        <h5
+            :style="{ 'color': '#' + theme.particles }"
+            class="banner-owner"
+        >narajaon's</h5>
         <h1 class="banner-title">Website Portfolio</h1>
         <p class="banner-content">
             Fullstack generalist 👊 High and low level programming enthusiast 🙏
@@ -8,6 +11,17 @@
         </p>
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        theme() {
+            return this.$store.getters['projects/currentTheme']();
+        },
+    }
+}
+</script>
+
 
 <style scoped>
 .home-banner {
@@ -19,6 +33,6 @@
 }
 
 .banner-owner {
-    color:rgb(142, 16, 214);
+    transition: color 1s;
 }
 </style>

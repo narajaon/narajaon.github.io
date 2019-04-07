@@ -1,16 +1,17 @@
 <template>
     <div class="contact-me">
+        <h1 style="margin-bottom: 15px">Like what you see ? 😎</h1>
         <div class="contacts">
-            <h3>N'hésite pas à me laisser tes coordonnées</h3>
+            <span>N'hésite pas à me laisser tes coordonnées</span>
             <input
                 type="email"
                 placeholder="Email"
                 autocomplete="on"
                 class="email"
-            >
+            />
         </div>
         <div>
-            <h3>Un commentaire ?</h3>
+            <span>Un commentaire ?</span>
             <textarea
                 type="text"
                 maxlength="150"
@@ -19,7 +20,7 @@
             />
         </div>
         <div class="social-links">
-            <h3>Tu peux aussi me retrouver sur</h3>
+            <span>Tu peux aussi me retrouver sur</span>
             <social-bar/>
         </div>
     </div>

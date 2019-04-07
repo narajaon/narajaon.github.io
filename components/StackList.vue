@@ -1,7 +1,7 @@
 <template>
     <div
         class="stack-list">
-        <div style="margin-right: 20px">
+        <div style="margin-right: 20px; width: 100%">
             <h3 class="subtitle">WEB STACK</h3>
             <div
                 v-for="stack in stackList"
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div>
+        <div style="width: 100%">
             <h3 class="subtitle">OTHER SKILLS</h3>
             <div class="other-skill-wrapper">
                 <div
@@ -45,7 +45,7 @@
                         :alt="`${other.name} icon`"
                         class="other-skill-icon"
                     />
-                    <div style="text-align: center">{{other.name}}</div>
+                    <div style="text-align: center; color: #747272">{{other.name}}</div>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@ export default {
                 {
                     name: 'Vue.js',
                     image: '/stack/vue.png',
-                    tags: ['Nuxt / Vuex', 'elementUI', 'axios', 'vue animations']
+                    tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
                 },
                 {
                     name: 'Angular',
@@ -75,15 +75,16 @@ export default {
                 {
                     name: 'JavaScript',
                     image: '/stack/javascript.png',
-                    tags: ['JS patterns', 'ES6+ syntax', 'DOM manipulation'],
+                    tags: ['Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
                 },
             ],
             otherSkills: [
-                { name: 'C', image: '/stack/c.png'},
                 { name: 'Swift', image: '/stack/swift.png'},
+                { name: 'C', image: '/stack/c.png'},
                 { name: 'Shell', image: '/stack/shell.png'},
                 { name: 'C++', image: '/stack/cpp.png'},
                 { name: 'Python', image: '/stack/python.png'},
+                { name: 'After effect', image: '/stack/after-effect.svg.png'},
             ],
         }
     }
@@ -143,12 +144,13 @@ span {
 
 .other-skill-wrapper {
     display: grid;
-    grid-template-columns: repeat(5, minmax(50px, 1fr));
-    grid-gap: 7px; 
+    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+    grid-gap: 15px; 
 }
 
 .other-skill {
-    /* margin-right: 13px; */
+    text-align: center;
+    max-width: 50px;
 }
 
 .other-skill-icon {

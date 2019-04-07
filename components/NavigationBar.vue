@@ -1,8 +1,20 @@
 <template>
     <div class="navigation-bar">
-        <nuxt-link active-class="active-link" class="nav-button" to="/" exact>Home</nuxt-link>
-        <nuxt-link active-class="active-link" class="nav-button" to="/about">About</nuxt-link>
+        <nuxt-link
+            exact
+            to="/"
+            active-class="active-link"
+            :style="{ 'color': '#' + theme.particles }"
+            class="nav-button"
+        >Home</nuxt-link>
+        <nuxt-link
+            to="/about"
+            active-class="active-link"
+            :style="{ 'color': '#' + theme.particles }"
+            class="nav-button"
+        >About</nuxt-link>
         <div
+            :style="{ 'background-color': '#' + theme.particles, 'color': '#' + theme.bg}"
             class="nav-button contact-button"
             @click="openContactMeDialog()"
         >Contact me</div>
@@ -11,11 +23,16 @@
 
 <script>
 export default {
+    computed: {
+        theme() {
+            return this.$store.getters['projects/currentTheme']();
+        },
+    },
     methods: {
         openContactMeDialog() {
             this.$store.commit('dialogs/setProps', { name: 'contactMe', visibility: true });
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -31,11 +48,11 @@ export default {
 .nav-button {
     padding: 10px;
     margin-left: 10px;
+    transition: color 1s;
 }
 
 a {
     text-decoration: none;
-    color: rgb(142, 16, 214);
 }
 
 .nav-button:hover {
@@ -43,8 +60,9 @@ a {
 }
 
 .contact-button {
-    background-color: rgb(142, 16, 214);
+    transition: all 1s;
     color: white;
+    font-size: bold;
 }
 
 .active-link {
