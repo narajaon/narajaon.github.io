@@ -58,9 +58,14 @@ export default {
         return {
             stackList: [
                 {
-                    name: 'Vue.js',
+                    name: 'Vue',
                     image: '/stack/vue.png',
                     tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
+                },
+                {
+                    name: 'React',
+                    image: '/stack/react.svg',
+                    tags: ['Redux', 'functional components', 'thunks']
                 },
                 {
                     name: 'Angular',
@@ -68,9 +73,9 @@ export default {
                     tags: ['Typescript', 'Angular Material', 'Angular CLI']
                 },
                 {
-                    name: 'Node.js',
+                    name: 'Node',
                     image: '/stack/node.png',
-                    tags: ['Event-loop', 'socket.io', 'routing', 'mongoDB'],
+                    tags: ['socket.io', 'routing', 'mongoDB'],
                 },
                 {
                     name: 'JavaScript',

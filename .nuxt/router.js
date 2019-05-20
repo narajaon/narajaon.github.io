@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _3449d8d9 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
-const _5401b39e = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _18284b5b = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _37e02620 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
@@ -74,18 +74,18 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: decodeURI('/'),
+    base: '/',
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
 
     routes: [{
       path: "/about",
-      component: _3449d8d9,
+      component: _18284b5b,
       name: "about"
     }, {
       path: "/",
-      component: _5401b39e,
+      component: _37e02620,
       name: "index"
     }],
 
