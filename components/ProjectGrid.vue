@@ -75,8 +75,8 @@ export default {
         switchParticlesColor(color) {
             const rgbFromHex = this.hexToRgb(color);
             pJSDom[0].pJS.particles.array.forEach((elem, i) => {
-                pJSDom[0].pJS.particles.array[i].color.value = `#${color}`;
-                pJSDom[0].pJS.particles.array[i].color.rgb = rgbFromHex;
+                elem.color.value = `#${color}`;
+                elem.color.rgb = rgbFromHex;
             });
         },
     },

@@ -58,14 +58,14 @@ export default {
         return {
             stackList: [
                 {
+                    name: 'React',
+                    image: '/stack/react.svg',
+                    tags: ['Redux', 'functional components', 'thunk', 'Router']
+                },
+                {
                     name: 'Vue',
                     image: '/stack/vue.png',
                     tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
-                },
-                {
-                    name: 'React',
-                    image: '/stack/react.svg',
-                    tags: ['Redux', 'functional components', 'thunks']
                 },
                 {
                     name: 'Angular',

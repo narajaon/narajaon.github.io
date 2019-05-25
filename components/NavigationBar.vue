@@ -13,6 +13,12 @@
             :style="{ 'color': '#' + theme.particles }"
             class="nav-button"
         >About</nuxt-link>
+        <!-- <nuxt-link
+            to="lab"
+            active-class="active-link"
+            :style="{ 'color': '#' + theme.particles }"
+            class="nav-button lab"
+        >Lab</nuxt-link> -->
         <div
             :style="{ 'background-color': '#' + theme.particles, 'color': '#' + theme.bg}"
             class="nav-button contact-button"
