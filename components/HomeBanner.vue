@@ -40,10 +40,14 @@ export default {
     transition: color 1s;
 }
 
+.banner-title {
+  position: relative;
+}
+
 .beta {
     position: absolute;
-    top: 54px;
-    left: 253px;
+    left: 250px;
+    bottom: 20px; 
     font-size: 16px;
     color: red;
     border: 1px solid red;
