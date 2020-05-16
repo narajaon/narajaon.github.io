@@ -5,21 +5,21 @@ export const state = () => ({
     {
       title: "EUROSPORT",
       description: "NODE / REACT / GRAPHQL",
-      src: "/projects/euro.gif",
+      src: "projects/euro.gif",
       show: false,
       theme: { bg: "1f2833", particles: "66fcf1" }
     },
     {
       title: "RED TETRIS",
       description: "REACT / REDUX FULL STACK APP",
-      src: "/projects/tetris.gif",
+      src: "projects/tetris.gif",
       show: false,
       theme: { bg: "fe6b4f", particles: "ffffff" }
     },
     {
       title: "ROOM",
       description: "REACT / NEXTJS APP",
-      src: "/projects/room.gif",
+      src: "projects/room.gif",
       show: false,
       theme: { bg: "2f2fa2", particles: "f64c72" }
     }

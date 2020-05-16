@@ -5,39 +5,39 @@ export default {
       stackList: [
         {
           name: 'React',
-          image: '/stack/react.svg',
+          image: 'stack/react.svg',
           tags: ['Redux', 'thunk', 'Next.js', 'jest', 'enzyme', 'testing-library', 'relay graphQL client', 'styled-components']
         },
         {
           name: 'Node',
-          image: '/stack/node.png',
+          image: 'stack/node.png',
           tags: [ 'Apollo graphQL server',
             'socket.io', 'routing', 'mongoDB'],
         },
         {
           name: 'JavaScript',
-          image: '/stack/javascript.png',
+          image: 'stack/javascript.png',
           tags: ['storybook', 'Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
         },
         {
           name: 'Vue',
-          image: '/stack/vue.png',
+          image: 'stack/vue.png',
           tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
         },
         {
           name: 'Angular',
-          image: '/stack/angular.png',
+          image: 'stack/angular.png',
           tags: ['Typescript', 'Angular Material', 'Angular CLI']
         },
       ],
       otherSkills: [
-        { name: 'Shell', image: '/stack/shell.png'},
-        { name: 'Docker', image: '/stack/docker.png'},
-        { name: 'C', image: '/stack/c.png'},
-        { name: 'Swift', image: '/stack/swift.png'},
-        { name: 'C++', image: '/stack/cpp.png'},
-        { name: 'Python', image: '/stack/python.png'},
-        { name: 'After effect', image: '/stack/after-effect.svg.png'},
+        { name: 'Shell', image: 'stack/shell.png'},
+        { name: 'Docker', image: 'stack/docker.png'},
+        { name: 'C', image: 'stack/c.png'},
+        { name: 'Swift', image: 'stack/swift.png'},
+        { name: 'C++', image: 'stack/cpp.png'},
+        { name: 'Python', image: 'stack/python.png'},
+        { name: 'After effect', image: 'stack/after-effect.svg.png'},
       ],
     }
   }
@@ -58,7 +58,7 @@ export default {
         class="stack"
       >
         <img
-          :src="stack.image"
+          :src="require(`../assets/${stack.image}`)"
           :alt="`${stack.name} icon`"
           class="skill-icon"
         >
@@ -95,7 +95,7 @@ export default {
           class="other-skill"
         >
           <img
-            :src="other.image"
+            :src="require(`../assets/${other.image}`)"
             :alt="`${other.name} icon`"
             class="other-skill-icon"
           >
@@ -155,6 +155,8 @@ span {
 .skill-icon {
     height: 50px;
     width: 50px;
+    min-height: 50px;
+    min-width: 50px;
     margin-right: 15px;
     filter: grayscale(40%);
 }

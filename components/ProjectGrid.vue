@@ -86,7 +86,7 @@ export default {
             </div>
           </transition>
           <img
-            :src="project.src"
+            :src="require(`../assets/${project.src}`)"
             alt="Project image"
             class="banner"
           >
