@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{215:function(n,t,e){"use strict";e.r(t);var c={components:{}},l=e(3),component=Object(l.a)(c,function(){var n=this.$createElement;return(this._self._c||n)("div",{staticClass:"lab-page"},[this._v("\n  COUCOU\n")])},[],!1,null,"24caa59a",null);t.default=component.exports}}]);
