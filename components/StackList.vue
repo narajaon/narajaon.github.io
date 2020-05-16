@@ -1,3 +1,49 @@
+<script>
+export default {
+  data() {
+    return {
+      stackList: [
+        {
+          name: 'React',
+          image: '/stack/react.svg',
+          tags: ['Redux', 'thunk', 'Next.js', 'jest', 'enzyme', 'testing-library', 'relay graphQL client', 'styled-components']
+        },
+        {
+          name: 'Node',
+          image: '/stack/node.png',
+          tags: [ 'Apollo graphQL server',
+            'socket.io', 'routing', 'mongoDB'],
+        },
+        {
+          name: 'JavaScript',
+          image: '/stack/javascript.png',
+          tags: ['storybook', 'Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
+        },
+        {
+          name: 'Vue',
+          image: '/stack/vue.png',
+          tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
+        },
+        {
+          name: 'Angular',
+          image: '/stack/angular.png',
+          tags: ['Typescript', 'Angular Material', 'Angular CLI']
+        },
+      ],
+      otherSkills: [
+        { name: 'Shell', image: '/stack/shell.png'},
+        { name: 'Docker', image: '/stack/docker.png'},
+        { name: 'C', image: '/stack/c.png'},
+        { name: 'Swift', image: '/stack/swift.png'},
+        { name: 'C++', image: '/stack/cpp.png'},
+        { name: 'Python', image: '/stack/python.png'},
+        { name: 'After effect', image: '/stack/after-effect.svg.png'},
+      ],
+    }
+  }
+}
+</script>
+
 <template>
   <div
     class="stack-list"
@@ -61,50 +107,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      stackList: [
-        {
-          name: 'React',
-          image: '/stack/react.svg',
-          tags: ['Redux', 'functional components', 'thunk', 'Router']
-        },
-        {
-          name: 'Vue',
-          image: '/stack/vue.png',
-          tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
-        },
-        {
-          name: 'Angular',
-          image: '/stack/angular.png',
-          tags: ['Typescript', 'Angular Material', 'Angular CLI']
-        },
-        {
-          name: 'Node',
-          image: '/stack/node.png',
-          tags: ['socket.io', 'routing', 'mongoDB'],
-        },
-        {
-          name: 'JavaScript',
-          image: '/stack/javascript.png',
-          tags: ['Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
-        },
-      ],
-      otherSkills: [
-        { name: 'Swift', image: '/stack/swift.png'},
-        { name: 'C', image: '/stack/c.png'},
-        { name: 'Shell', image: '/stack/shell.png'},
-        { name: 'C++', image: '/stack/cpp.png'},
-        { name: 'Python', image: '/stack/python.png'},
-        { name: 'After effect', image: '/stack/after-effect.svg.png'},
-      ],
-    }
-  }
-}
-</script>
 
 <style scoped>
 .subtitle {

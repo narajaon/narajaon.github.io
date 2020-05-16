@@ -1,3 +1,16 @@
+<script>
+export default {
+  methods: {
+    closeDialog() {
+      this.$store.commit('dialogs/setProps', {
+        name: 'contactMe',
+        visibility: false,
+      });
+    },
+  },
+}
+</script>
+
 <template>
   <div
     class="dialog-wrapper"
@@ -15,19 +28,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    closeDialog() {
-      this.$store.commit('dialogs/setProps', {
-        name: 'contactMe',
-        visibility: false,
-      });
-    },
-  },
-}
-</script>
 
 <style scoped>
 .dialog-wrapper {

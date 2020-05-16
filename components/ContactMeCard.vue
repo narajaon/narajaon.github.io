@@ -1,3 +1,12 @@
+<script>
+import SocialBar from '~/components/SocialBar';
+export default {
+  components: {
+    SocialBar,
+  }
+}
+</script>
+
 <template>
   <div class="contact-me">
     <h1 style="margin-bottom: 15px">
@@ -17,7 +26,7 @@
       <textarea
         type="text"
         maxlength="150"
-        placeholder="J'adore ton site Fabien !"
+        placeholder="J'adore ton site Fabien ! (même si le formulaire de contact ne marche pas)"
         class="comment"
       />
     </div>
@@ -27,15 +36,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import SocialBar from '~/components/SocialBar';
-export default {
-  components: {
-    SocialBar,
-  }
-}
-</script>
 
 <style scoped>
 .email {

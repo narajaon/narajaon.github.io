@@ -1,3 +1,13 @@
+<script>
+export default {
+  computed: {
+    theme() {
+      return this.$store.getters['projects/currentTheme']();
+    },
+  }
+}
+</script>
+
 <template>
   <div class="home-banner">
     <h5
@@ -10,22 +20,10 @@
       Website Portfolio
     </h1>
     <p class="banner-content">
-      Fullstack generalist 👊 High and low level programming enthusiast 🙏
-      Creative and passionate 🤘 Studied at <strong>42 Paris 🚀</strong>
+      Hello stranger, welcome to my portfolio ! Below are some of the most noteworthy projects I did so enjoy.
     </p>
   </div>
 </template>
-
-<script>
-export default {
-  computed: {
-    theme() {
-      return this.$store.getters['projects/currentTheme']();
-    },
-  }
-}
-</script>
-
 
 <style scoped>
 .home-banner {
