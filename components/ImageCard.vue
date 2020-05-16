@@ -1,47 +1,6 @@
-<template>
-  <div
-    class="image-container"
-    @mouseenter="changeState(true)"
-    @mouseleave="changeState(false)"
-  >
-    <transition
-      name="fade"
-    >
-      <div
-        v-if="isHovered"
-        class="hover-overlay"
-      />
-    </transition>
-
-    <div
-      class="image"
-    >
-      <transition
-        name="replace"
-        mode="out-in"
-      >
-        <i
-          v-if="tileContent !== 'empty'"
-          :class="currentIcon"
-        />
-        <!-- <img
-                    :key="randomValue"
-                    class="image"
-                    :src="`https://loremflickr.com/350/350?lock=${randomValue}`"
-                    alt="card image"
-                /> -->
-      </transition>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
-    // reloadTime: {
-    //     type: Number,
-    //     default: 5000,
-    // }
     tileIndex: {
       required: true,
       type: Number,
@@ -68,16 +27,6 @@ export default {
       };
     },
   },
-  created() {
-    // this.intervalId = setInterval(() => {
-    //     const max = 3000;
-    //     const min = 1;
-    //     this.randomValue = Math.floor(Math.random() * (max - min)) + min;
-    // }, this.reloadTime);
-  },
-  beforeDestroy() {
-    // clearInterval(this.intervalId);
-  },
   methods: {
     changeState(state) {
       this.isHovered = state;
@@ -86,6 +35,37 @@ export default {
 }
 </script>
 
+
+<template>
+  <div
+    class="image-container"
+    @mouseenter="changeState(true)"
+    @mouseleave="changeState(false)"
+  >
+    <transition
+      name="fade"
+    >
+      <div
+        v-if="isHovered"
+        class="hover-overlay"
+      />
+    </transition>
+
+    <div
+      class="image"
+    >
+      <transition
+        name="replace"
+        mode="out-in"
+      >
+        <i
+          v-if="tileContent !== 'empty'"
+          :class="currentIcon"
+        />
+      </transition>
+    </div>
+  </div>
+</template>
 <style scoped>
 .hover-overlay {
     position: absolute;

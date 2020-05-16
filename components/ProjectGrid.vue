@@ -28,6 +28,9 @@ export default {
     });
   },
   methods: {
+    openProjectDetailsDialog() {
+      this.$store.commit('dialogs/setProps', { name: 'ProjectBanner', visibility: true });
+    },
     trackBannerState(index, theme) {
       this.switchParticlesColor(theme);
       this.$store.commit('projects/bannerHoverState', { hoveredBannerIndex: index })
@@ -73,6 +76,7 @@ export default {
           class="banner-container"
           @mouseenter="trackBannerState(index, project.theme.particles)"
           @mouseleave="trackBannerState(null, 'ffffff')"
+          @click="openProjectDetailsDialog"
         >
           <transition
             name="fade"

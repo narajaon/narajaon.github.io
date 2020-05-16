@@ -2,9 +2,9 @@
 import NavigationBar from '~/components/NavigationBar';
 import SocialBar from '~/components/SocialBar';
 import ContactMeCard from '~/components/ContactMeCard';
+import ProjectBanner from '~/components/ProjectBanner';
 import DialogContainer from '~/components/DialogContainer';
 import particlesConf from '~/assets/particles.json'
-import Vue from "vue";
 
 export default {
   components: {
@@ -12,23 +12,32 @@ export default {
     SocialBar,
     DialogContainer,
     ContactMeCard,
+    ProjectBanner
   },
   data() {
     return {
       conf: particlesConf,
+      dialogs: {
+        ContactMeCard,
+        ProjectBanner,
+      }
     };
   },
   computed: {
-    contactMeDialog() {
-      return this.$store.getters['dialogs/entity']('contactMe');
+    dialogIsOpen() {
+      const dialogs = this.$store.getters['dialogs/all'];
+      return Object.keys(dialogs).find(d => dialogs[d].isVisible);
     },
     defaultLayoutBG() {
       return {
         'background-color': `#${this.$store.getters['projects/currentTheme']().bg}`,
       };
     },
+    CurrentDialog() {
+      return this.dialogs[this.dialogIsOpen];
+    }
   },
-  mounted () {
+  mounted() {
     this.initParticleJS();
   },
   methods: {
@@ -58,12 +67,19 @@ export default {
     <transition
       name="fade"
     >
-      <dialog-container v-if="contactMeDialog.isVisible">
-        <contact-me-card slot="body" />
+      <dialog-container
+        v-if="dialogIsOpen"
+        :name="dialogIsOpen"
+      >
+        <component
+          :is="CurrentDialog"
+          slot="body"
+        />
       </dialog-container>
     </transition>
   </div>
 </template>
+
 <style scoped>
 .particles {
     position: fixed;

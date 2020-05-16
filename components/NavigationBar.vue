@@ -1,3 +1,18 @@
+<script>
+export default {
+  computed: {
+    theme() {
+      return this.$store.getters['projects/currentTheme']();
+    },
+  },
+  methods: {
+    openContactMeDialog() {
+      this.$store.commit('dialogs/setProps', { name: 'ContactMeCard', visibility: true });
+    },
+  },
+}
+</script>
+
 <template>
   <div class="navigation-bar">
     <nuxt-link
@@ -17,12 +32,6 @@
     >
       About
     </nuxt-link>
-    <!-- <nuxt-link
-            to="lab"
-            active-class="active-link"
-            :style="{ 'color': '#' + theme.particles }"
-            class="nav-button lab"
-        >Lab</nuxt-link> -->
     <div
       :style="{ 'background-color': '#' + theme.particles, 'color': '#' + theme.bg}"
       class="nav-button contact-button"
@@ -32,22 +41,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  computed: {
-    theme() {
-      return this.$store.getters['projects/currentTheme']();
-    },
-  },
-  methods: {
-    openContactMeDialog() {
-      this.$store.commit('dialogs/setProps', { name: 'contactMe', visibility: true });
-    },
-  },
-}
-</script>
-
 
 <style scoped>
 .navigation-bar {

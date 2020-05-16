@@ -1,9 +1,10 @@
 <script>
 export default {
+  props: ['name'],
   methods: {
     closeDialog() {
       this.$store.commit('dialogs/setProps', {
-        name: 'contactMe',
+        name: this.name,
         visibility: false,
       });
     },
@@ -34,6 +35,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 2;
 }
 
 .dialog-header, .dialog-body {
