@@ -99,21 +99,17 @@ export default {
 .description {
     color: #ffffff;
     font-weight: bold;
+    padding: 0 10px;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 10px;
 }
 
 .project {
-    width: 100%;
+    margin-bottom: 10px;
 }
 
 .banner-container {
-    width: 100%;
-    max-height: 250px;
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
@@ -136,6 +132,16 @@ export default {
 }
 
 .banner {
-    width: 100%;
+    position: relative;
+    width: 150%;
+    right: 70px;
+}
+
+@media (min-width: 426px) {
+  .banner {
+      position: static;
+      right: 0px;
+      width: 100%;
+  }
 }
 </style>
