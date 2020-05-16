@@ -1,41 +1,3 @@
-<template>
-  <div class="wrapper">
-    <div
-      v-for="(project, index) in projects"
-      :key="project.title"
-      class="project"
-    >
-      <transition
-        name="transform"
-      >
-        <div
-          v-show="project.show"
-          class="banner-container"
-          @mouseenter="trackBannerState(index, project.theme.particles)"
-          @mouseleave="trackBannerState(null, 'ffffff')"
-        >
-          <transition
-            name="fade"
-            mode="in-out"
-          >
-            <div
-              v-if="isHovered(index)"
-              class="overlay"
-            >
-              <span class="description">{{ project.title }} - {{ project.description }}</span>
-            </div>
-          </transition>
-          <img
-            :src="project.src"
-            alt="Project image"
-            class="banner"
-          >
-        </div>
-      </transition>
-    </div>
-  </div>
-</template>
-
 <script>
 import Partiles from 'particles.js'
 
@@ -96,6 +58,43 @@ export default {
 }
 </script>
 
+<template>
+  <div class="wrapper">
+    <div
+      v-for="(project, index) in projects"
+      :key="project.title"
+      class="project"
+    >
+      <transition
+        name="transform"
+      >
+        <div
+          v-show="project.show"
+          class="banner-container"
+          @mouseenter="trackBannerState(index, project.theme.particles)"
+          @mouseleave="trackBannerState(null, 'ffffff')"
+        >
+          <transition
+            name="fade"
+            mode="in-out"
+          >
+            <div
+              v-if="isHovered(index)"
+              class="overlay"
+            >
+              <span class="description">{{ project.title }} - {{ project.description }}</span>
+            </div>
+          </transition>
+          <img
+            :src="project.src"
+            alt="Project image"
+            class="banner"
+          >
+        </div>
+      </transition>
+    </div>
+  </div>
+</template>
 <style scoped>
 .description {
     color: #ffffff;

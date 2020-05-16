@@ -1,30 +1,30 @@
-import Vue from 'vue';
+import Vue from "vue";
 
 export const state = () => ({
   projects: [
     {
-      title: 'IGNITION PROGRAM',
-      description: 'VUE / NUXT WEBAPP',
-      src: '/projects/ig-home.JPG',
+      title: "IGNITION PROGRAM",
+      description: "VUE / NUXT WEBAPP",
+      src: "/projects/ig-home.JPG",
       show: false,
-      theme: { bg: 'fe6b4f', particles: 'ffffff'},
+      theme: { bg: "fe6b4f", particles: "ffffff" }
     },
     {
-      title: 'RED TETRIS',
-      description: 'REACT / REDUX FULL STACK APP',
-      src: '/projects/redt-multiplayer.png',
+      title: "RED TETRIS",
+      description: "REACT / REDUX FULL STACK APP",
+      src: "/projects/redt-multiplayer.png",
       show: false,
-      theme: { bg: '1f2833', particles: '66fcf1'},
+      theme: { bg: "1f2833", particles: "66fcf1" }
     },
     {
-      title: 'GITHUB.IO',
-      description: 'VUE / NUXT SINGLE PAGE APP',
-      src: '/projects/narajaonio.png',
+      title: "ROOM",
+      description: "REACT / NEXTJS APP",
+      src: "/projects/room.gif",
       show: false,
-      theme: { bg: '2f2fa2', particles: 'f64c72'},
+      theme: { bg: "2f2fa2", particles: "f64c72" }
     }
   ],
-  activeBanner: null,
+  activeBanner: null
 });
 
 export const getters = {
@@ -32,9 +32,10 @@ export const getters = {
   project: state => index => state.projects[index],
   activeBanner: state => () => state.activeBanner,
   currentTheme: state => () => {
-    if (state.activeBanner === null) return { bg: 'deddde', particles: '6922ef'};
+    if (state.activeBanner === null)
+      return { bg: "deddde", particles: "6922ef" };
     return state.projects[state.activeBanner].theme;
-  },
+  }
 };
 
 export const mutations = {
@@ -46,5 +47,5 @@ export const mutations = {
   },
   bannerHoverState(state, { hoveredBannerIndex }) {
     state.activeBanner = hoveredBannerIndex;
-  },
+  }
 };
