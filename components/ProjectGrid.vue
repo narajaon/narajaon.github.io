@@ -128,6 +128,7 @@ export default {
     height: 100%;
     background-color: #000000de;
     position: absolute;
+    z-index: 1;
     box-sizing: border-box;
 }
 
