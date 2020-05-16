@@ -107,6 +107,7 @@ export default {
 
 .project {
     margin-bottom: 10px;
+    height: fit-content;
 }
 
 .banner-container {
@@ -136,12 +137,13 @@ export default {
     position: relative;
     width: 150%;
     right: 70px;
+    box-sizing: border-box;
 }
 
 @media (min-width: 426px) {
   .banner {
       position: static;
-      right: 0px;
+      right: 0;
       width: 100%;
   }
 }

@@ -1,12 +1,3 @@
-<template>
-  <div
-    class="home-page"
-  >
-    <home-banner />
-    <project-grid />
-  </div>
-</template>
-
 <script>
 import ImageCard from '~/components/ImageCard.vue';
 import HomeBanner from '~/components/HomeBanner.vue';
@@ -20,6 +11,15 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div
+    class="home-page"
+  >
+    <home-banner />
+    <project-grid />
+  </div>
+</template>
 
 <style scoped>
 .home-page {

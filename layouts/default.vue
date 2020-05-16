@@ -1,35 +1,8 @@
-<template>
-  <div 
-    class="default-layout"
-    :style="defaultLayoutBG"
-  >
-    <div
-      id="particlejs-container"
-      class="particles"
-    />
-    <div
-      class="page-wrapper"
-    >
-      <navigation-bar />
-      <nuxt class="app" />
-      <social-bar />
-    </div>
-    <transition
-      name="fade"
-    >
-      <dialog-container v-if="contactMeDialog.isVisible">
-        <contact-me-card slot="body" />
-      </dialog-container>
-    </transition>
-  </div>
-</template>
-
 <script>
 import NavigationBar from '~/components/NavigationBar';
 import SocialBar from '~/components/SocialBar';
 import ContactMeCard from '~/components/ContactMeCard';
 import DialogContainer from '~/components/DialogContainer';
-import Partiles from 'particles.js'
 import particlesConf from '~/assets/particles.json'
 import Vue from "vue";
 
@@ -66,6 +39,31 @@ export default {
 }
 </script>
 
+<template>
+  <div 
+    class="default-layout"
+    :style="defaultLayoutBG"
+  >
+    <div
+      id="particlejs-container"
+      class="particles"
+    />
+    <div
+      class="page-wrapper"
+    >
+      <navigation-bar />
+      <nuxt class="app" />
+      <social-bar />
+    </div>
+    <transition
+      name="fade"
+    >
+      <dialog-container v-if="contactMeDialog.isVisible">
+        <contact-me-card slot="body" />
+      </dialog-container>
+    </transition>
+  </div>
+</template>
 <style scoped>
 .particles {
     position: fixed;
