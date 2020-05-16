@@ -155,7 +155,7 @@ span {
 .skill-icon {
     height: 50px;
     width: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
     filter: grayscale(40%);
 }
 
