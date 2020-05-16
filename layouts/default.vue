@@ -1,27 +1,27 @@
 <template>
-    <div 
-        class="default-layout"
-        :style="defaultLayoutBG"
+  <div 
+    class="default-layout"
+    :style="defaultLayoutBG"
+  >
+    <div
+      id="particlejs-container"
+      class="particles"
+    />
+    <div
+      class="page-wrapper"
     >
-        <div
-            class="particles"
-            id="particlejs-container"
-        ></div>
-        <div
-            class="page-wrapper"
-        >
-            <navigation-bar/>
-            <nuxt class="app"/>
-            <social-bar/>
-        </div>
-        <transition
-            name="fade"
-        >
-            <dialog-container v-if="contactMeDialog.isVisible">
-                <contact-me-card slot="body"/>
-            </dialog-container>
-        </transition>
+      <navigation-bar />
+      <nuxt class="app" />
+      <social-bar />
     </div>
+    <transition
+      name="fade"
+    >
+      <dialog-container v-if="contactMeDialog.isVisible">
+        <contact-me-card slot="body" />
+      </dialog-container>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -34,35 +34,35 @@ import particlesConf from '~/assets/particles.json'
 import Vue from "vue";
 
 export default {
-    components: {
-        NavigationBar,
-        SocialBar,
-        DialogContainer,
-        ContactMeCard,
+  components: {
+    NavigationBar,
+    SocialBar,
+    DialogContainer,
+    ContactMeCard,
+  },
+  data() {
+    return {
+      conf: particlesConf,
+    };
+  },
+  computed: {
+    contactMeDialog() {
+      return this.$store.getters['dialogs/entity']('contactMe');
     },
-    data() {
-        return {
-            conf: particlesConf,
-        };
+    defaultLayoutBG() {
+      return {
+        'background-color': `#${this.$store.getters['projects/currentTheme']().bg}`,
+      };
     },
-    computed: {
-        contactMeDialog() {
-            return this.$store.getters['dialogs/entity']('contactMe');
-        },
-        defaultLayoutBG() {
-            return {
-                'background-color': `#${this.$store.getters['projects/currentTheme']().bg}`,
-            };
-        },
+  },
+  mounted () {
+    this.initParticleJS();
+  },
+  methods: {
+    initParticleJS () {
+      particlesJS('particlejs-container', this.conf);
     },
-    mounted () {
-        this.initParticleJS();
-    },
-    methods: {
-        initParticleJS () {
-            particlesJS('particlejs-container', this.conf);
-        },
-    },
+  },
 }
 </script>
 

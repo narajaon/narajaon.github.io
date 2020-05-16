@@ -1,28 +1,31 @@
 <template>
-    <div class="social-bar">
-        <a
-            href="https://github.com/narajaon"
-            rel="noopener noreferrer"
-            :style="{ 'color': '#' + theme.particles }"
-            class="fab fa-github"/>
-        <a
-            href="#"
-            :style="{ 'color': '#' + theme.particles }"
-            class="fab fa-linkedin"/>
-        <a
-            href="#"
-            :style="{ 'color': '#' + theme.particles }"
-            class="fab fa-twitter"/>
-    </div>
+  <div class="social-bar">
+    <a
+      href="https://github.com/narajaon"
+      rel="noopener noreferrer"
+      :style="{ 'color': '#' + theme.particles }"
+      class="fab fa-github"
+    />
+    <a
+      href="#"
+      :style="{ 'color': '#' + theme.particles }"
+      class="fab fa-linkedin"
+    />
+    <a
+      href="#"
+      :style="{ 'color': '#' + theme.particles }"
+      class="fab fa-twitter"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-    computed: {
-        theme() {
-            return this.$store.getters['projects/currentTheme']();
-        },
+  computed: {
+    theme() {
+      return this.$store.getters['projects/currentTheme']();
     },
+  },
 }
 </script>
 

@@ -1,44 +1,50 @@
 <template>
-    <div class="navigation-bar">
-        <nuxt-link
-            exact
-            to="/"
-            active-class="active-link"
-            :style="{ 'color': '#' + theme.particles }"
-            class="nav-button"
-        >Home</nuxt-link>
-        <nuxt-link
-            to="/about"
-            active-class="active-link"
-            :style="{ 'color': '#' + theme.particles }"
-            class="nav-button"
-        >About</nuxt-link>
-        <!-- <nuxt-link
+  <div class="navigation-bar">
+    <nuxt-link
+      exact
+      to="/"
+      active-class="active-link"
+      :style="{ 'color': '#' + theme.particles }"
+      class="nav-button"
+    >
+      Home
+    </nuxt-link>
+    <nuxt-link
+      to="/about"
+      active-class="active-link"
+      :style="{ 'color': '#' + theme.particles }"
+      class="nav-button"
+    >
+      About
+    </nuxt-link>
+    <!-- <nuxt-link
             to="lab"
             active-class="active-link"
             :style="{ 'color': '#' + theme.particles }"
             class="nav-button lab"
         >Lab</nuxt-link> -->
-        <div
-            :style="{ 'background-color': '#' + theme.particles, 'color': '#' + theme.bg}"
-            class="nav-button contact-button"
-            @click="openContactMeDialog()"
-        >Contact me</div>
+    <div
+      :style="{ 'background-color': '#' + theme.particles, 'color': '#' + theme.bg}"
+      class="nav-button contact-button"
+      @click="openContactMeDialog()"
+    >
+      Contact me
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    computed: {
-        theme() {
-            return this.$store.getters['projects/currentTheme']();
-        },
+  computed: {
+    theme() {
+      return this.$store.getters['projects/currentTheme']();
     },
-    methods: {
-        openContactMeDialog() {
-            this.$store.commit('dialogs/setProps', { name: 'contactMe', visibility: true });
-        },
+  },
+  methods: {
+    openContactMeDialog() {
+      this.$store.commit('dialogs/setProps', { name: 'contactMe', visibility: true });
     },
+  },
 }
 </script>
 

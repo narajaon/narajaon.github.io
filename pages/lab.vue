@@ -1,15 +1,15 @@
 <template>
-    <div
-        class="lab-page"
-    >
-        COUCOU
-    </div>
+  <div
+    class="lab-page"
+  >
+    COUCOU
+  </div>
 </template>
 
 <script>
 export default {
-    components: {
-    },
+  components: {
+  },
 }
 </script>
 

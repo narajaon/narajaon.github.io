@@ -1,22 +1,22 @@
 <template>
-    <div class="about-page">
-        <div class="profile-banner">
-            <img
-                src="~assets/images/Fabien-copie-2-570x570.jpg"
-                alt="profile picture"
-                align="left"
-            />
-            <div class="profile-infos">
-                <h1>About me</h1>
-                <p class="page-content">
-                    Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales.
-                    et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.
-                </p>
-            </div>
-        </div>
+  <div class="about-page">
+    <div class="profile-banner">
+      <img
+        src="~assets/images/Fabien-copie-2-570x570.jpg"
+        alt="profile picture"
+        align="left"
+      >
+      <div class="profile-infos">
+        <h1>About me</h1>
+        <p class="page-content">
+          Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales.
+          et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.
+        </p>
+      </div>
+    </div>
 
-        <stack-list/>
-<!-- 
+    <stack-list />
+    <!-- 
         <div class="page-category">
             <h3>What kind of dev I am</h3>
             <p class="page-content">
@@ -26,7 +26,7 @@
                 falsa et placentia sibi discentes, adfectati regni vel artium nefandarum calumnias insontibus adfligebant.
             </p>
         </div> -->
-        <!-- <div class="page-category">
+    <!-- <div class="page-category">
             <h3 class="align-end">What kind of dev I'm not</h3>
             <p class="page-content">
                 Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult,
@@ -34,16 +34,16 @@
                 re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.
             </p>
         </div> -->
-    </div>
+  </div>
 </template>
 
 <script>
 import StackList from '~/components/StackList.vue';
 
 export default {
-    components: {
-        StackList,
-    }    
+  components: {
+    StackList,
+  }    
 }
 </script>
 

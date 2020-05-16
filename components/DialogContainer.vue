@@ -1,30 +1,31 @@
 <template>
+  <div
+    class="dialog-wrapper"
+  >
     <div
-        class="dialog-wrapper"
+      class="dialog-backdrop"
+      @click="closeDialog()"
+    />
+    <div
+      class="content-wrapper"
     >
-        <div
-            @click="closeDialog()"
-            class="dialog-backdrop"
-        />
-        <div
-            class="content-wrapper">
-            <div class="dialog-body">
-                <slot name="body"/>
-            </div>
-        </div>
+      <div class="dialog-body">
+        <slot name="body" />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        closeDialog() {
-            this.$store.commit('dialogs/setProps', {
-                name: 'contactMe',
-                visibility: false,
-            });
-        },
+  methods: {
+    closeDialog() {
+      this.$store.commit('dialogs/setProps', {
+        name: 'contactMe',
+        visibility: false,
+      });
     },
+  },
 }
 </script>
 

@@ -1,63 +1,63 @@
 <template>
-	<div class="grid-wrapper">
-		<transition
-			name="fade"
-		>
-			<div
-				v-show="currentState === 'full'"
-				class="grid-overlay"
-			>
-				<i
-					@click="resetGrid()"
-					class="fas fa-redo"
-				/>
-			</div>
-		</transition>
-		<transition-group
-			class="card-grid"
-			name="fade"
-			tag="div"
-		>
-			<div
-				v-for="(id, index) in homeGrid"
-				@click="switchTileState(index)"
-				:key="`transition-${index}`"
-				class="fade-content"
-			>
-				<image-card :tileIndex="index"/>
-			</div>
-		</transition-group>
-	</div>
+  <div class="grid-wrapper">
+    <transition
+      name="fade"
+    >
+      <div
+        v-show="currentState === 'full'"
+        class="grid-overlay"
+      >
+        <i
+          class="fas fa-redo"
+          @click="resetGrid()"
+        />
+      </div>
+    </transition>
+    <transition-group
+      class="card-grid"
+      name="fade"
+      tag="div"
+    >
+      <div
+        v-for="(id, index) in homeGrid"
+        :key="`transition-${index}`"
+        class="fade-content"
+        @click="switchTileState(index)"
+      >
+        <image-card :tile-index="index" />
+      </div>
+    </transition-group>
+  </div>
 </template>
 
 <script>
 import ImageCard from '~/components/ImageCard.vue';
 
 export default {
-	components: {
-		ImageCard
-	},
-	computed: {
-		currentTurn() {
-			return this.$store.getters['grid/entity']('currentTurn');
-		},
-		homeGrid() {
-			return this.$store.getters['grid/entity']('homeGrid');
-		},
-		currentState() {
-			return this.$store.getters['grid/currentState'];
-		},
-	},
-	methods: {
-		resetGrid() {
-			this.$store.commit('grid/setAllTiles', { content: 'empty' });
-		},
-		switchTileState(index) {
-			if (this.homeGrid[index] !== 'empty') return;
-			this.$store.commit('grid/setGridTile', { index, content: this.currentTurn })
-			this.$store.commit('grid/switchTurn');
-		},
-	}
+  components: {
+    ImageCard
+  },
+  computed: {
+    currentTurn() {
+      return this.$store.getters['grid/entity']('currentTurn');
+    },
+    homeGrid() {
+      return this.$store.getters['grid/entity']('homeGrid');
+    },
+    currentState() {
+      return this.$store.getters['grid/currentState'];
+    },
+  },
+  methods: {
+    resetGrid() {
+      this.$store.commit('grid/setAllTiles', { content: 'empty' });
+    },
+    switchTileState(index) {
+      if (this.homeGrid[index] !== 'empty') return;
+      this.$store.commit('grid/setGridTile', { index, content: this.currentTurn })
+      this.$store.commit('grid/switchTurn');
+    },
+  }
 }
 </script>
 

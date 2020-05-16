@@ -1,37 +1,39 @@
 <template>
-    <div class="contact-me">
-        <h1 style="margin-bottom: 15px">Like what you see ? 😎</h1>
-        <div class="contacts">
-            <span>N'hésite pas à me laisser tes coordonnées</span>
-            <input
-                type="email"
-                placeholder="Email"
-                autocomplete="on"
-                class="email"
-            />
-        </div>
-        <div>
-            <span>Un commentaire ?</span>
-            <textarea
-                type="text"
-                maxlength="150"
-                placeholder="J'adore ton site Fabien !"
-                class="comment"
-            />
-        </div>
-        <div class="social-links">
-            <span>Tu peux aussi me retrouver sur</span>
-            <social-bar/>
-        </div>
+  <div class="contact-me">
+    <h1 style="margin-bottom: 15px">
+      Like what you see ? 😎
+    </h1>
+    <div class="contacts">
+      <span>N'hésite pas à me laisser tes coordonnées</span>
+      <input
+        type="email"
+        placeholder="Email"
+        autocomplete="on"
+        class="email"
+      >
     </div>
+    <div>
+      <span>Un commentaire ?</span>
+      <textarea
+        type="text"
+        maxlength="150"
+        placeholder="J'adore ton site Fabien !"
+        class="comment"
+      />
+    </div>
+    <div class="social-links">
+      <span>Tu peux aussi me retrouver sur</span>
+      <social-bar />
+    </div>
+  </div>
 </template>
 
 <script>
 import SocialBar from '~/components/SocialBar';
 export default {
-    components: {
-        SocialBar,
-    }
+  components: {
+    SocialBar,
+  }
 }
 </script>
 

@@ -1,97 +1,98 @@
 <template>
-    <div class="wrapper">
+  <div class="wrapper">
+    <div
+      v-for="(project, index) in projects"
+      :key="project.title"
+      class="project"
+    >
+      <transition
+        name="transform"
+      >
         <div
-            v-for="(project, index) in projects"
-            :key="project.title"
-            class="project">
-            <transition
-                name="transform"
+          v-show="project.show"
+          class="banner-container"
+          @mouseenter="trackBannerState(index, project.theme.particles)"
+          @mouseleave="trackBannerState(null, 'ffffff')"
+        >
+          <transition
+            name="fade"
+            mode="in-out"
+          >
+            <div
+              v-if="isHovered(index)"
+              class="overlay"
             >
-                <div
-                    v-show="project.show"
-                    @mouseenter="trackBannerState(index, project.theme.particles)"
-                    @mouseleave="trackBannerState(null, 'ffffff')"
-                    class="banner-container"
-                >
-                    <transition
-                        name="fade"
-                        mode="in-out"
-                    >
-                        <div
-                            v-if="isHovered(index)"
-                            class="overlay"
-                        >
-                            <span class="description">{{project.title}} - {{project.description}}</span>
-                        </div>
-                    </transition>
-                    <img
-                        :src="project.src"
-                        alt="Project image"
-                        class="banner"
-                    />
-                </div>
-            </transition>
+              <span class="description">{{ project.title }} - {{ project.description }}</span>
+            </div>
+          </transition>
+          <img
+            :src="project.src"
+            alt="Project image"
+            class="banner"
+          >
         </div>
+      </transition>
     </div>
+  </div>
 </template>
 
 <script>
 import Partiles from 'particles.js'
 
 export default {
-    data() {
-        return {
-            isLoading: false,
-        };
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+  computed: {
+    projects() {
+      return this.$store.getters['projects/allProjects']();
     },
-    computed: {
-        projects() {
-            return this.$store.getters['projects/allProjects']();
-        },
-        activeBanner() {
-            return this.$store.getters['projects/activeBanner']();
-        },
+    activeBanner() {
+      return this.$store.getters['projects/activeBanner']();
     },
-    methods: {
-        trackBannerState(index, theme) {
-            this.switchParticlesColor(theme);
-            this.$store.commit('projects/bannerHoverState', { hoveredBannerIndex: index })
-        },
-        toggleBannerVisibility(index, visibility) {
-            setTimeout(() => {
-                this.$store.commit('projects/bannerVisibility', { index, show: visibility })
-            }, index * 500);
-        },
-        isHovered(index) {
-            return this.activeBanner === index;
-        },
-        hexToRgb(hex) {
-            const bigint = parseInt(hex, 16);
-            const r = (bigint >> 16) & 255;
-            const g = (bigint >> 8) & 255;
-            const b = bigint & 255;
-            return { r, g, b };
-        },
-        switchParticlesColor(color) {
-            const rgbFromHex = this.hexToRgb(color);
-            pJSDom[0].pJS.particles.array.forEach((elem, i) => {
-                elem.color.value = `#${color}`;
-                elem.color.rgb = rgbFromHex;
-            });
-        },
+  },
+  mounted() {
+    this.isLoading = true;
+    this.projects.forEach((element, index) => {
+      this.toggleBannerVisibility(index, true)
+    });
+    this.isLoading = false;
+  },
+  destroyed() {
+    this.projects.forEach((element, index) => {
+      this.toggleBannerVisibility(index, false);
+    });
+  },
+  methods: {
+    trackBannerState(index, theme) {
+      this.switchParticlesColor(theme);
+      this.$store.commit('projects/bannerHoverState', { hoveredBannerIndex: index })
     },
-    mounted() {
-        this.isLoading = true;
-        this.projects.forEach((element, index) => {
-            this.toggleBannerVisibility(index, true)
-        });
-        this.isLoading = false;
+    toggleBannerVisibility(index, visibility) {
+      setTimeout(() => {
+        this.$store.commit('projects/bannerVisibility', { index, show: visibility })
+      }, index * 500);
     },
-    destroyed() {
-        this.projects.forEach((element, index) => {
-            this.toggleBannerVisibility(index, false);
-        });
-    }
+    isHovered(index) {
+      return this.activeBanner === index;
+    },
+    hexToRgb(hex) {
+      const bigint = parseInt(hex, 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return { r, g, b };
+    },
+    switchParticlesColor(color) {
+      const rgbFromHex = this.hexToRgb(color);
+      pJSDom[0].pJS.particles.array.forEach((elem, i) => {
+        elem.color.value = `#${color}`;
+        elem.color.rgb = rgbFromHex;
+      });
+    },
+  }
 }
 </script>
 

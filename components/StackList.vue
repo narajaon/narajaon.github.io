@@ -1,98 +1,108 @@
 <template>
-    <div
-        class="stack-list">
-        <div style="margin-right: 20px; width: 100%">
-            <h3 class="subtitle">WEB STACK</h3>
+  <div
+    class="stack-list"
+  >
+    <div style="margin-right: 20px; width: 100%">
+      <h3 class="subtitle">
+        WEB STACK
+      </h3>
+      <div
+        v-for="stack in stackList"
+        :key="stack.name"
+        class="stack"
+      >
+        <img
+          :src="stack.image"
+          :alt="`${stack.name} icon`"
+          class="skill-icon"
+        >
+        <div>
+          <div
+            class="stack-name"
+            :class="stack.name"
+          >
+            {{ stack.name }}
+          </div>
+          <div
+            class="skill-wrapper"
+          >
             <div
-                v-for="stack in stackList"
-                :key="stack.name"
-                class="stack"
+              v-for="tag in stack.tags"
+              :key="tag"
+              class="skill"
             >
-                <img
-                    :src="stack.image"
-                    :alt="`${stack.name} icon`"
-                    class="skill-icon"
-                />
-                <div
-                >
-                    <div
-                        class="stack-name"
-                        :class="stack.name"
-                    >{{ stack.name }}</div>
-                    <div
-                        class="skill-wrapper"
-                    >
-                        <div
-                            v-for="tag in stack.tags"
-                            :key="tag"
-                            class="skill"
-                        >{{ tag }}</div>
-                    </div>
-                </div>
+              {{ tag }}
             </div>
+          </div>
         </div>
-
-        <div style="width: 100%">
-            <h3 class="subtitle">OTHER SKILLS</h3>
-            <div class="other-skill-wrapper">
-                <div
-                    v-for="other in otherSkills"
-                    :key="other.name"
-                    class="other-skill"
-                >
-                    <img
-                        :src="other.image"
-                        :alt="`${other.name} icon`"
-                        class="other-skill-icon"
-                    />
-                    <div style="text-align: center; color: #747272">{{other.name}}</div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div style="width: 100%">
+      <h3 class="subtitle">
+        OTHER SKILLS
+      </h3>
+      <div class="other-skill-wrapper">
+        <div
+          v-for="other in otherSkills"
+          :key="other.name"
+          class="other-skill"
+        >
+          <img
+            :src="other.image"
+            :alt="`${other.name} icon`"
+            class="other-skill-icon"
+          >
+          <div style="text-align: center; color: #747272">
+            {{ other.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            stackList: [
-                {
-                    name: 'React',
-                    image: '/stack/react.svg',
-                    tags: ['Redux', 'functional components', 'thunk', 'Router']
-                },
-                {
-                    name: 'Vue',
-                    image: '/stack/vue.png',
-                    tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
-                },
-                {
-                    name: 'Angular',
-                    image: '/stack/angular.png',
-                    tags: ['Typescript', 'Angular Material', 'Angular CLI']
-                },
-                {
-                    name: 'Node',
-                    image: '/stack/node.png',
-                    tags: ['socket.io', 'routing', 'mongoDB'],
-                },
-                {
-                    name: 'JavaScript',
-                    image: '/stack/javascript.png',
-                    tags: ['Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
-                },
-            ],
-            otherSkills: [
-                { name: 'Swift', image: '/stack/swift.png'},
-                { name: 'C', image: '/stack/c.png'},
-                { name: 'Shell', image: '/stack/shell.png'},
-                { name: 'C++', image: '/stack/cpp.png'},
-                { name: 'Python', image: '/stack/python.png'},
-                { name: 'After effect', image: '/stack/after-effect.svg.png'},
-            ],
-        }
+  data() {
+    return {
+      stackList: [
+        {
+          name: 'React',
+          image: '/stack/react.svg',
+          tags: ['Redux', 'functional components', 'thunk', 'Router']
+        },
+        {
+          name: 'Vue',
+          image: '/stack/vue.png',
+          tags: ['Nuxt - Vuex', 'elementUI', 'axios', 'Vue animations']
+        },
+        {
+          name: 'Angular',
+          image: '/stack/angular.png',
+          tags: ['Typescript', 'Angular Material', 'Angular CLI']
+        },
+        {
+          name: 'Node',
+          image: '/stack/node.png',
+          tags: ['socket.io', 'routing', 'mongoDB'],
+        },
+        {
+          name: 'JavaScript',
+          image: '/stack/javascript.png',
+          tags: ['Cypress', 'mocha', 'THREE.js', 'leaflet', 'particles.js'],
+        },
+      ],
+      otherSkills: [
+        { name: 'Swift', image: '/stack/swift.png'},
+        { name: 'C', image: '/stack/c.png'},
+        { name: 'Shell', image: '/stack/shell.png'},
+        { name: 'C++', image: '/stack/cpp.png'},
+        { name: 'Python', image: '/stack/python.png'},
+        { name: 'After effect', image: '/stack/after-effect.svg.png'},
+      ],
     }
+  }
 }
 </script>
 
