@@ -3,18 +3,18 @@ import Vue from "vue";
 export const state = () => ({
   projects: [
     {
-      title: "IGNITION PROGRAM",
-      description: "VUE / NUXT WEBAPP",
-      src: "/projects/ig-home.JPG",
+      title: "EUROSPORT",
+      description: "NODE / REACT / GRAPHQL",
+      src: "/projects/euro.gif",
       show: false,
-      theme: { bg: "fe6b4f", particles: "ffffff" }
+      theme: { bg: "1f2833", particles: "66fcf1" }
     },
     {
       title: "RED TETRIS",
       description: "REACT / REDUX FULL STACK APP",
-      src: "/projects/redt-multiplayer.png",
+      src: "/projects/tetris.gif",
       show: false,
-      theme: { bg: "1f2833", particles: "66fcf1" }
+      theme: { bg: "fe6b4f", particles: "ffffff" }
     },
     {
       title: "ROOM",
